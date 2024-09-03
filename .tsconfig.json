@@ -1,4 +1,0 @@
-{
-  "extends": "./shared-fvtt-bits/dotfiles/tsconfig.json",
-  "include": ["src"]
-}
