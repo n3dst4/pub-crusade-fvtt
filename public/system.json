@@ -1,0 +1,20 @@
+{
+  "id": "pub-crusade",
+  "title": "Pub Crusade",
+  "description": "Pub Crusade by Grant Howitt",
+  "version": "1.0.0",
+  "authors": [{ "name": "Neil de Carteret" }],
+  "esmodules": ["pub-crusade.js"],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["description"]
+      }
+    }
+  }
+}

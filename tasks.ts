@@ -8,16 +8,14 @@ import {
   unlink,
   updateManifestFromCITagPush,
 } from "@lumphammer/shared-fvtt-bits/task-core/tasks";
-
 import { TaskArgs } from "@lumphammer/shared-fvtt-bits/task-core/types";
+import { exec } from "child_process";
+import * as fs from "fs-extra";
 import path from "path";
-import { promisify } from "util";
-import { exec, spawn } from "child_process";
 import { fileURLToPath } from "url";
-import fs from "fs-extra";
+import { promisify } from "util";
 
 const execPromise = promisify(exec);
-const spawnPromise = promisify(spawn);
 
 // This file replaces gulp/grunt/jake/whatever and just provides a place to put
 // little build-related chunks of code and way to run them from the command
@@ -36,7 +34,7 @@ export async function buildCode({ buildPath, log }: TaskArgs) {
   log("Finished building TypeScript.");
 }
 
-export async function copyAllFiles({ buildPath, log }: TaskArgs) {
+export async function copyFiles({ buildPath, log }: TaskArgs) {
   log("Copying all files...");
   await fs.ensureDir(buildPath);
   await fs.copy("public", buildPath);
@@ -45,14 +43,14 @@ export async function copyAllFiles({ buildPath, log }: TaskArgs) {
 
 async function build(args: TaskArgs) {
   await clean(args);
-  await Promise.all([buildCode(args), copyAllFiles(args)]);
+  await Promise.all([buildCode(args), copyFiles(args)]);
 }
 
-boot({
+void boot({
   config: {
     rootPath,
     publicPath: "public",
-    manifestName: "module.json",
+    manifestName: "system.json",
     buildPath: "build",
     packagePath: "package-build",
   },
@@ -65,6 +63,6 @@ boot({
     packidge,
     buildCode,
     build,
-    copyAllFiles,
+    copyFiles,
   ],
 });

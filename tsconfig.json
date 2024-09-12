@@ -1,4 +1,5 @@
 {
   "extends": "./packages/shared-fvtt-bits/dotfiles/tsconfig.fvtt.json",
-  "include": ["src"]
+  // "include": ["src", "tasks.ts"],
+  "files": ["src/pub-crusade.ts", "tasks.ts"]
 }

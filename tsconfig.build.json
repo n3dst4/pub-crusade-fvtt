@@ -1,0 +1,12 @@
+{
+  "extends": "./packages/shared-fvtt-bits/dotfiles/tsconfig.fvtt.json",
+	"include": [],
+	"files": [
+		"src/pub-crusade.ts"
+	],
+	"compilerOptions": {
+		"noEmit": false,
+		"outDir": "build",
+		"rootDir": "src",
+	}
+}

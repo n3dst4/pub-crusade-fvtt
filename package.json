@@ -1,10 +1,21 @@
 {
-  "name": "trail-of-cthulhu-2e-fvtt",
+  "name": "pub-crusade",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Where we're going, we don't need tests!\"",
+    "build": "./tasks.ts build",
+    "package": "./tasks.ts build && ./tasks.ts packidge",
+    "link": "./tasks.ts link",
+    "unlink": "tasks.ts unlink",
+    "eslint:check": "eslint src",
+    "eslint:fix": "eslint src --fix",
+    "format:check": "prettier --check src",
+    "format:fix": "prettier --write src",
+    "lint:check": "pnpm format:check && pnpm eslint:check",
+    "lint:fix": "pnpm format:fix && pnpm eslint:fix",
+    "do-release": "./shared-fvtt-bits/scripts/do-release.sh"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +24,10 @@
   "devDependencies": {
     "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
     "@lumphammer/investigator-fvtt-types": "^1.12.1",
+    "@types/fs-extra": "^11.0.4",
     "fs-extra": "^11.2.0",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.1",
     "typescript": "^5.5.4"
   },
   "dependencies": {
