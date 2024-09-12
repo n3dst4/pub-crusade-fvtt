@@ -1,4 +1,5 @@
-import {
+import * as constants from "./constants";
+import { PCSheetClass } from "./PCSheetClass";
 
 const {
   HTMLField,
@@ -35,6 +36,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 }
 
+console.log("Pub Crusade loading");
+
+Hooks.once("init", () => {
+  console.log("Pub Crusade initializing");
+  CONFIG.Actor.dataModels["character"] = CharacterData;
+  Actors.registerSheet(constants.systemId, PCSheetClass, {
+    makeDefault: true,
+    types: [constants.character],
+  });
+});
+
 declare global {
   namespace foundry {
     namespace data.fields {
@@ -61,5 +73,11 @@ declare global {
     namespace abstract {
       class TypeDataModel {}
     }
+  }
+  interface CONFIG {
+    Actor: {
+      dataModels: Record<string, any>;
+    };
+    // dataModels: Record<string, any>;
   }
 }
