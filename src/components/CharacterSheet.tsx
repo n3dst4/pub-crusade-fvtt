@@ -3,6 +3,7 @@ import React from "react";
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { tealTheme } from "../copiedFromInvestigator/themes/tealTheme";
 import { CharacterActor } from "../v10Types";
+import { ConditionsList } from "./ConditionsList";
 import { DrinksCounter } from "./DrinksCounter";
 import { DrinksList } from "./DrinksList";
 import { Roll } from "./Roll";
@@ -67,7 +68,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           actor={actor}
           css={{ gridColumn: "1/-1", gridRow: "drinks-list" }}
         />
-        <div css={{ gridColumn: "1/4" }}>conditions</div>{" "}
+        <ConditionsList actor={actor} css={{ gridColumn: "1/4" }} />
         <div css={{ gridColumn: "4/-1" }}>notes</div>
       </div>
     </CSSReset>

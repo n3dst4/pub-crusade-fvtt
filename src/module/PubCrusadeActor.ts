@@ -186,6 +186,48 @@ export class PubCrusadeActor extends Actor {
       `,
     });
   };
+
+  addCondition = async (): Promise<void> => {
+    assertCharacterActor(this);
+    await this.update({
+      system: {
+        conditions: [...this.system.conditions, { id: nanoid() }],
+      },
+    });
+  };
+
+  setCondition = async (id: string, name: string): Promise<void> => {
+    assertCharacterActor(this);
+    const index = this.system.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.update({
+      system: {
+        conditions: [
+          ...this.system.conditions.slice(0, index),
+          { ...this.system.conditions[index], name },
+          ...this.system.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  deleteCondition = async (id: string): Promise<void> => {
+    assertCharacterActor(this);
+    const index = this.system.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.update({
+      system: {
+        conditions: [
+          ...this.system.conditions.slice(0, index),
+          ...this.system.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
 }
 
 declare global {
