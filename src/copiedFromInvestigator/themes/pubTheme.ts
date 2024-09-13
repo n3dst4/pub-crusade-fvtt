@@ -35,7 +35,7 @@ export const pubTheme: ThemeV1 = themeFactory({
     },
   },
   colors: {
-    accent: "#2f5e7d",
+    accent: "#8f4927",
     accentContrast: "white",
     glow: "#5effff",
     wallpaper: "#ddd",

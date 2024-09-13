@@ -55,7 +55,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           <ImagePickle
             subject={actor}
             application={foundryApplication}
-            css={{ ...absoluteCover, transform: "rotateZ(-2deg)" }}
+            css={{ ...absoluteCover, transform: "rotateZ(-4deg)" }}
           />
         </div>
         <Panel
@@ -66,7 +66,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             display: "flex",
             flexDirection: "row",
             font: loveYaLikeASister.fontFamily,
-            fontSize: "3em",
+            fontSize: "4em",
             fontVariant: "small-caps",
             fontWeight: "bold",
           }}
