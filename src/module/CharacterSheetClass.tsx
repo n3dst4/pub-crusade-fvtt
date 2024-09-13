@@ -1,14 +1,14 @@
 import { ReactApplicationMixin } from "@lumphammer/shared-fvtt-bits/src/ReactApplicationMixin";
 import React from "react";
 
-import { reactTemplatePath, systemId } from "./constants";
-import { PCSheet } from "./PCSheet";
+import { reactTemplatePath, systemId } from "../constants";
+import { PCSheet } from "../PCSheet";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class PCSheetClassBase extends ActorSheet {
+class CharacterSheetClassBase extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -20,12 +20,12 @@ class PCSheetClassBase extends ActorSheet {
   }
 }
 
-const render = (sheet: PCSheetClassBase) => {
+const render = (sheet: CharacterSheetClassBase) => {
   return <PCSheet actor={sheet.document} foundryApplication={sheet} />;
 };
 
-export const PCSheetClass = ReactApplicationMixin(
-  "PCSheetClass",
-  PCSheetClassBase,
+export const CharacterSheetClass = ReactApplicationMixin(
+  "CharacterSheetClass",
+  CharacterSheetClassBase,
   render,
 );

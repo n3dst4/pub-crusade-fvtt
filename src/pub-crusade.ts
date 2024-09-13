@@ -1,20 +1,24 @@
 import * as constants from "./constants";
-import { PCSheetClass } from "./PCSheetClass";
+import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
+import { CharacterSheetClass } from "./module/CharacterSheetClass";
+import { PubCrusadeActor } from "./module/PubCrusadeActor";
 
-const {
-  HTMLField,
-  NumberField,
-  StringField,
-  SchemaField,
-  BooleanField,
-  ArrayField,
-} = foundry.data.fields;
+const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
+  foundry.data.fields;
 
 export class CharacterData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
-      description: new HTMLField(),
-      quest: new SchemaField({
+      title: new StringField(),
+      titleDie: new StringField(),
+      notes: new HTMLField(),
+      order: new StringField(),
+      tenet: new StringField(),
+      personalQuest: new SchemaField({
+        name: new StringField(),
+        completed: new BooleanField(),
+      }),
+      orderQuest: new SchemaField({
         name: new StringField(),
         completed: new BooleanField(),
       }),
@@ -24,14 +28,12 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           name: new StringField(),
         }),
       ),
-      tenet: new StringField(),
-      drinks: new NumberField({
-        required: true,
-        integer: true,
-        min: 0,
-        initial: 0,
-        max: 9,
-      }),
+      drinks: new ArrayField(
+        new SchemaField({
+          what: new StringField(),
+          where: new StringField(),
+        }),
+      ),
     };
   }
 }
@@ -39,9 +41,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 console.log("Pub Crusade loading");
 
 Hooks.once("init", () => {
-  console.log("Pub Crusade initializing");
+  systemLogger.log("Initializing");
+
+  // data models
   CONFIG.Actor.dataModels["character"] = CharacterData;
-  Actors.registerSheet(constants.systemId, PCSheetClass, {
+
+  // document classes
+  CONFIG.Actor.documentClass = PubCrusadeActor;
+
+  // sheets
+  Actors.unregisterSheet("core", ActorSheet);
+  Actors.registerSheet(constants.systemId, CharacterSheetClass, {
     makeDefault: true,
     types: [constants.character],
   });
@@ -77,6 +87,7 @@ declare global {
   interface CONFIG {
     Actor: {
       dataModels: Record<string, any>;
+      documentClass: typeof Actor;
     };
     // dataModels: Record<string, any>;
   }

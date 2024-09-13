@@ -13,7 +13,7 @@
   "documentTypes": {
     "Actor": {
       "character": {
-        "htmlFields": ["description"]
+        "htmlFields": ["notes"]
       }
     }
   }

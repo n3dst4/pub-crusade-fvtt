@@ -16,7 +16,8 @@
     "format:fix": "prettier --write src",
     "lint:check": "pnpm format:check && pnpm eslint:check",
     "lint:fix": "pnpm format:fix && pnpm eslint:fix",
-    "do-release": "./shared-fvtt-bits/scripts/do-release.sh"
+    "do-release": "./shared-fvtt-bits/scripts/do-release.sh",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +41,8 @@
     "vitest": "^2.1.0"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/css": "^11.13.0",
     "@emotion/react": "^11.13.3",
     "@lumphammer/shared-fvtt-bits": "workspace:^",
     "react": "^18.3.1",
