@@ -1,7 +1,8 @@
 import React from "react";
 
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
-import { tealTheme } from "../copiedFromInvestigator/themes/tealTheme";
+import { loveYaLikeASister } from "../copiedFromInvestigator/themes/constants";
+import { pubTheme } from "../copiedFromInvestigator/themes/pubTheme";
 import { CharacterActor } from "../v10Types";
 import { ConditionsList } from "./ConditionsList";
 import { DrinksCounter } from "./DrinksCounter";
@@ -20,31 +21,41 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
   foundryApplication,
 }) => {
   return (
-    <CSSReset theme={tealTheme} mode="large">
+    <CSSReset theme={pubTheme} mode="large">
       <div
+        className="css-reset"
         css={{
           position: "absolute",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "#ecb692",
+          // backgroundColor: "#ecb692",
+          backgroundColor: "#dbb9a2",
           padding: "1em",
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
           gridTemplateRows:
             "min-content [top] min-content [roll] min-content [drinks-list] 1fr [notes] 1fr [end]",
-          rowGap: "0.3em",
-          columnGap: "1em",
+          rowGap: "0.5em",
+          columnGap: "0.5em",
         }}
       >
         <div css={{ gridColumn: "1/2", display: "flex", flexDirection: "row" }}>
           <div>image</div>
         </div>
         <div
-          css={{ gridColumn: "2/-1", display: "flex", flexDirection: "row" }}
+          css={{
+            gridColumn: "2/-1",
+            display: "flex",
+            flexDirection: "row",
+            font: loveYaLikeASister.fontFamily,
+            fontSize: "3em",
+            fontVariant: "small-caps",
+            fontWeight: "bold",
+          }}
         >
-          <div>PUB CRUSADE</div>
+          <div>Pub Crusade</div>
         </div>
         <TopBits actor={actor} css={{ gridColumn: "1/-1", gridRow: "top" }} />
         <Roll

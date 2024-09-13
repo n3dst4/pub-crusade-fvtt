@@ -3,3 +3,9 @@ export const averiaLibre = {
     "@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');",
   fontFamily: "16px 'Averia Libre', sans-serif",
 };
+
+export const loveYaLikeASister = {
+  importStatement:
+    "@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');",
+  fontFamily: "16px 'Love Ya Like A Sister', sans-serif",
+};

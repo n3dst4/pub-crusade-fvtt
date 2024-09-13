@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { CharacterActor } from "../v10Types";
 import { DrinksRow } from "./DrinksRow";
+import { Panel } from "./Panel";
 
 interface DrinksListProps {
   actor: CharacterActor;
@@ -11,7 +12,7 @@ interface DrinksListProps {
 
 export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
   return (
-    <div
+    <Panel
       className={className}
       css={{
         display: "grid",
@@ -21,8 +22,8 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
         columnGap: "0.2em",
       }}
     >
-      <div css={{ gridColumn: "span 3" }}>What</div>
-      <div css={{ gridColumn: "span 3" }}>Where</div>
+      <h2 css={{ gridColumn: "span 3" }}>What</h2>
+      <h2 css={{ gridColumn: "span 3" }}>Where</h2>
       {actor.system.drinks.length === 0 && (
         <div css={{ gridColumn: "1 / -1", justifySelf: "center" }}>
           {"No drinks yet... you're alarmingly sober."}
@@ -36,10 +37,10 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
           disabled={actor.system.drinks.length >= 9}
           onClick={actor.addDrink}
         >
-          Add drink
+          Drink a drink
         </Button>
       </div>
-    </div>
+    </Panel>
   );
 };
 

@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { CharacterActor } from "../v10Types";
 import { ConditionsRow } from "./ConditionsRow";
+import { Panel } from "./Panel";
 
 interface ConditionsListProps {
   actor: CharacterActor;
@@ -14,7 +15,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
   className,
 }) => {
   return (
-    <div
+    <Panel
       className={className}
       css={{
         display: "grid",
@@ -24,7 +25,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
         columnGap: "0.2em",
       }}
     >
-      <div css={{ gridColumn: "span 3" }}>Conditions</div>
+      <h2 css={{ gridColumn: "span 2" }}>Conditions</h2>
       {actor.system.conditions.length === 0 && (
         <div css={{ gridColumn: "1 / -1", justifySelf: "center" }}>
           {"No conditions yet. Give it some time."}
@@ -33,10 +34,10 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
       {actor.system.conditions.map(({ id }) => {
         return <ConditionsRow key={id} actor={actor} id={id} />;
       })}
-      <div css={{ gridColumn: "2 / 3", justifySelf: "center" }}>
+      <div css={{ gridColumn: "1 / -1", justifySelf: "center" }}>
         <Button onClick={actor.addCondition}>Add condition</Button>
       </div>
-    </div>
+    </Panel>
   );
 };
 

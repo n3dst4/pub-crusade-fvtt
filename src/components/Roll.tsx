@@ -3,6 +3,7 @@ import React from "react";
 import { AsyncNumberInput } from "../copiedFromInvestigator/components/inputs/AsyncNumberInput";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { CharacterActor } from "../v10Types";
+import { Panel } from "./Panel";
 
 interface RollProps {
   title: string;
@@ -32,16 +33,29 @@ export const Roll: React.FC<RollProps> = ({
   const handleClickRoll = React.useCallback(() => {
     console.log("roll");
     void actor.roll(modifier, useTitleDie, lowOrHigh);
+    setModifier(0);
+    setUseTitleDie(false);
   }, [actor, lowOrHigh, modifier, useTitleDie]);
 
   return (
-    <div className={className}>
-      <div>{title}</div>
-      <div>{description}</div>
-      <div>
-        modifier: <AsyncNumberInput value={modifier} onChange={setModifier} />
+    <Panel className={className} css={{ textAlign: "center" }}>
+      <h2 css={{ "&&": { marginBottom: "0em" } }}>{title}</h2>
+      <div css={{ fontSize: "0.8em", marginBottom: "0.5em" }}>
+        {description}
       </div>
-      <div>
+      <div
+        css={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "0.5em",
+        }}
+      >
+        <span css={{ marginRight: "0.5em" }}>Modifier</span>{" "}
+        <AsyncNumberInput value={modifier} onChange={setModifier} />
+      </div>
+      <div css={{ marginBottom: "0.5em" }}>
         <select
           value={useTitleDie ? "true" : "false"}
           onChange={handleChangeUseTitleDie}
@@ -53,7 +67,7 @@ export const Roll: React.FC<RollProps> = ({
       <div>
         <Button onClick={handleClickRoll}>Roll</Button>
       </div>
-    </div>
+    </Panel>
   );
 };
 

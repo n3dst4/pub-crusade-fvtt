@@ -1,6 +1,6 @@
 import React from "react";
 
-import { tealTheme } from "./tealTheme";
+import { pubTheme } from "./pubTheme";
 import { ThemeV1 } from "./types";
 
-export const ThemeContext = React.createContext<ThemeV1>(tealTheme);
+export const ThemeContext = React.createContext<ThemeV1>(pubTheme);

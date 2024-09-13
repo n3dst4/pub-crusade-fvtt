@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 import { RichTextEditor } from "../copiedFromInvestigator/components/inputs/RichTextEditor";
 import { CharacterActor } from "../v10Types";
+import { Panel } from "./Panel";
 
 interface NotesProps {
   actor: CharacterActor;
@@ -22,16 +23,16 @@ export const Notes: React.FC<NotesProps> = ({ actor, className }) => {
     setEditMode(true);
   };
 
-  const handleChange = async (newValue: string) => {
+  const handleChange = (newValue: string) => {
     temp.current = newValue;
   };
 
   return (
-    <div className={className} css={{ position: "relative" }}>
+    <Panel className={className}>
       {!editMode && (
-        <div>
+        <h2>
           Notes <a onClick={handleClickEdit}>Edit</a>
-        </div>
+        </h2>
       )}
       {editMode ? (
         <RichTextEditor
@@ -42,7 +43,7 @@ export const Notes: React.FC<NotesProps> = ({ actor, className }) => {
       ) : (
         <div dangerouslySetInnerHTML={{ __html: actor.system.notes }} />
       )}
-    </div>
+    </Panel>
   );
 };
 

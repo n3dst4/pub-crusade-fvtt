@@ -32,7 +32,7 @@ export const DrinksRow: React.FC<DrinksRowProps> = ({ actor, id }) => {
 
   const handleDelete = useCallback(async () => {
     const yes = await confirmADoodleDo({
-      message: `Are you sure you want to delete the ${drink.what} that you drank at ${drink.where}?`,
+      message: `Delete the ${drink.what || "(blank)"} that you drank at ${drink.where || "(blank)"}?`,
       confirmText: "Yes",
       cancelText: "No",
       confirmIconClass: "fa-trash",
