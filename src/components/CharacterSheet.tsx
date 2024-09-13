@@ -1,6 +1,8 @@
 import React from "react";
 
+import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
+import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { loveYaLikeASister } from "../copiedFromInvestigator/themes/constants";
 import { pubTheme } from "../copiedFromInvestigator/themes/pubTheme";
 import { CharacterActor } from "../v10Types";
@@ -42,8 +44,19 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           columnGap: "0.5em",
         }}
       >
-        <div css={{ gridColumn: "1/2", display: "flex", flexDirection: "row" }}>
-          <div>image</div>
+        <div
+          css={{
+            gridColumn: "1/2",
+            display: "flex",
+            flexDirection: "row",
+            position: "relative",
+          }}
+        >
+          <ImagePickle
+            subject={actor}
+            application={foundryApplication}
+            css={{ ...absoluteCover, transform: "rotateZ(-2deg)" }}
+          />
         </div>
         <Panel
           css={{
