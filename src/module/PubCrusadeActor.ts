@@ -4,6 +4,7 @@
 
 import { nanoid } from "nanoid";
 
+import { systemLogger } from "../copiedFromInvestigator/functions/utilities";
 import { assertCharacterActor } from "../v10Types";
 
 export class PubCrusadeActor extends Actor {
@@ -138,6 +139,105 @@ export class PubCrusadeActor extends Actor {
       },
     });
   };
+
+  roll = async (
+    modifier: number,
+    useTitleDie: boolean,
+    lowOrHigh: "high" | "low",
+  ): Promise<void> => {
+    assertCharacterActor(this);
+    const die = useTitleDie ? this.system.titleDie : "d8";
+    const rollExpression = `${die} + @modifier`;
+
+    const roll = new Roll(rollExpression, { modifier });
+    await roll.evaluate({ async: true });
+    systemLogger.log(roll);
+    const total = roll.total;
+    if (total === undefined) {
+      throw new Error("total is undefined");
+    }
+    const isSuccess =
+      lowOrHigh === "low"
+        ? total < this.system.drinks.length ||
+          roll.dice[0].results[0].result === 1
+        : total > this.system.drinks.length ||
+          roll.dice[0].results[0].result === 8;
+    const isComplicated = total === this.system.drinks.length;
+
+    const message = isComplicated
+      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe!</div>"
+      : isSuccess
+        ? "<div class='success'>Success!</div>"
+        : "<div class='failure'>Failure!</div>";
+
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({
+        actor: this,
+      }),
+      content: `
+        <div
+        >
+          Tries to roll ${lowOrHigh} after ${this.system.drinks.length} drinks.
+          </div>
+          <div>
+          ${roll.formula} = ${roll.total}
+        </div>
+        ${message}
+      `,
+    });
+  };
+
+  // async testAbility(spend: number): Promise<void> {
+  //   assertGame(game);
+  //   assertAbilityItem(this);
+  //   if (this.actor === null) {
+  //     return;
+  //   }
+  //   const isBoosted = settings.useBoost.get() && this.system.boost;
+  //   const boost = isBoosted ? 1 : 0;
+  //   const situationalModifiers = this.activeSituationalModifiers.map((id) => {
+  //     assertAbilityItem(this);
+  //     const situationalModifier = this.system.situationalModifiers.find(
+  //       (situationalModifier) => situationalModifier?.id === id,
+  //     );
+  //     return situationalModifier;
+  //   });
+
+  //   let rollExpression = "1d6 + @spend";
+  //   const rollValues: Record<string, number> = { spend };
+  //   if (isBoosted) {
+  //     rollExpression += " + @boost";
+  //     rollValues["boost"] = boost;
+  //   }
+  //   for (const situationalModifier of situationalModifiers) {
+  //     if (situationalModifier === undefined) {
+  //       continue;
+  //     }
+  //     rollExpression += ` + @${situationalModifier.id}`;
+  //     rollValues[situationalModifier.id] = situationalModifier.modifier;
+  //   }
+
+  //   const roll = new Roll(rollExpression, rollValues);
+  //   await roll.evaluate({ async: true });
+  //   await roll.toMessage({
+  //     speaker: ChatMessage.getSpeaker({
+  //       actor: this.actor,
+  //     }),
+  //     content: `
+  //       <div
+  //         class="${constants.abilityChatMessageClassName}"
+  //         ${constants.htmlDataItemId}="${this.id}"
+  //         ${constants.htmlDataActorId}="${this.parent?.id ?? ""}"
+  //         ${constants.htmlDataMode}="${constants.htmlDataModeTest}"
+  //         ${constants.htmlDataName}="${this.name}"
+  //         ${constants.htmlDataImageUrl}="${this.img}"
+  //         ${constants.htmlDataTokenId}="${this.parent?.token?.id ?? ""}"
+  //       />
+  //     `,
+  //   });
+  //   const pool = this.system.pool - (Number(spend) || 0);
+  //   await this.update({ system: { pool } });
+  // }
 }
 
 declare global {

@@ -7,6 +7,7 @@ import { Toggle } from "../copiedFromInvestigator/components/inputs/Toggle";
 import { tealTheme } from "../copiedFromInvestigator/themes/tealTheme";
 import { CharacterActor } from "../v10Types";
 import { DrinksRow } from "./inputs/DrinksRow";
+import { Roll } from "./Roll";
 
 interface CharacterSheetProps {
   actor: CharacterActor;
@@ -31,7 +32,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
           gridTemplateRows:
-            "repeat(4, min-content) [roll] min-content [roll-die] min-content [drinks-list] 1fr [notes] 1fr [end]",
+            "repeat(4, min-content) [roll] min-content [drinks-list] 1fr [notes] 1fr [end]",
           rowGap: "0.3em",
           columnGap: "1em",
         }}
@@ -44,7 +45,13 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
         >
           <div>PUB CRUSADE</div>
         </div>
-        <div css={{ gridColumn: "1/3" }}>
+        <div css={{ gridColumn: "1/4" }}>
+          <label>
+            Name
+            <AsyncTextInput value={actor.name ?? ""} onChange={actor.setName} />
+          </label>
+        </div>
+        <div css={{ gridColumn: "4/6" }}>
           <label>
             Title
             <AsyncTextInput
@@ -54,7 +61,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "3/4" }}>
+        <div css={{ gridColumn: "6/7" }}>
           <label>
             Die
             <select
@@ -69,13 +76,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             </select>
           </label>
         </div>
-        <div css={{ gridColumn: "4/-1" }}>
-          <label>
-            Name
-            <AsyncTextInput value={actor.name ?? ""} onChange={actor.setName} />
-          </label>
-        </div>
-        <div css={{ gridColumn: "1/4" }}>
+        <div css={{ gridColumn: "1/3" }}>
           <label>
             Order
             <AsyncTextInput
@@ -84,7 +85,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "4/6" }}>
+        <div css={{ gridColumn: "3/6" }}>
           <label>
             Order Quest
             <AsyncTextInput
@@ -102,7 +103,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "1/4" }}>
+        <div css={{ gridColumn: "1/3" }}>
           <label>
             Tenet
             <AsyncTextInput
@@ -111,7 +112,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "4/6" }}>
+        <div css={{ gridColumn: "3/6" }}>
           <label>
             Personal Quest
             <AsyncTextInput
@@ -129,12 +130,18 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "1/3", gridRow: "roll" }}>roll low</div>
-        <div css={{ gridColumn: "1/3", gridRow: "roll-die" }}>roll low die</div>
+        <div css={{ gridColumn: "1/3", gridRow: "roll" }}>
+          <Roll
+            title="Roll low"
+            description="(violence, escalation, tomfoolery)"
+            actor={actor}
+            lowOrHigh="low"
+          />
+        </div>
         <div
           css={{
             gridColumn: "3/5",
-            gridRow: "span 2",
+            gridRow: "roll",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -144,9 +151,13 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           <div css={{ fontSize: "3em" }}>{actor.system.drinks.length}</div>
           <div>drinks</div>
         </div>
-        <div css={{ gridColumn: "5/7", gridRow: "roll" }}>roll high</div>
-        <div css={{ gridColumn: "5/7", gridRow: "roll-die" }}>
-          roll high die
+        <div css={{ gridColumn: "5/7", gridRow: "roll" }}>
+          <Roll
+            title="Roll high"
+            description="(social, precision, be sensible)"
+            actor={actor}
+            lowOrHigh="high"
+          />
         </div>
         <div
           css={{
@@ -155,7 +166,6 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             display: "grid",
             gridTemplateColumns: "subgrid",
             alignContent: "start",
-            // padding: "2em",
             rowGap: "0.5em",
             columnGap: "0.2em",
           }}
