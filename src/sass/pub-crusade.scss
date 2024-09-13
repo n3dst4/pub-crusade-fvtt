@@ -1,0 +1,83 @@
+/* ------------------------------------ */
+/*				   Less					*/
+/* This is your Less entry file			*/
+/* ------------------------------------ */
+
+// @use "pico" with (
+//   $parent-selector: ".pico"
+// );
+
+@font-face {
+  font-family: "Longdon Decorative Regular";
+  // previously this was set to a path that was relative to the css file **at
+  // runtime** when we were serving CSS directly from Foundry. Now that we're
+  // doing it through Vite it's pointed to an actual resolvable-at-build-time
+  // filepath.
+  src: url(../assets/fonts/LongdonDecorative.woff2) format("woff2");
+}
+
+.window-content.non-resizable {
+  padding: 0;
+  position: relative;
+}
+
+.window-content.resizable {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  .react-target {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+a.entity-link,
+a.content-link,
+a.inline-roll {
+  background: unset;
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.react-target {
+  flex: 1;
+}
+
+.window-app,
+#sidebar,
+.main-controls li,
+.sub-controls li,
+#players,
+#hotbar > *,
+#navigation a,
+#navigation li {
+  backdrop-filter: blur(10px);
+  background-image: linear-gradient(to bottom, #000b 0%, #0006 100%);
+}
+
+hr {
+  width: calc(100% - 2em);
+}
+
+
+
+button.investigator-secret-hide-reveal-button {
+  width: fit-content;
+}
+
+// foundry v12 adds "position: relative" to .directory-item, which breaks our
+// absolutely-positioned combat tracker
+.investigator-combatant-list .directory-item {
+  position: absolute;
+}
+
+// foundry's default styles mean our compendium pack names get cut off
+.compendium-sidebar .directory-item.compendium[data-pack*="pub-crusade"] h3 {
+  // was 16px
+  font-size: 1em;
+  // was 80%
+  max-width: 100%;
+}

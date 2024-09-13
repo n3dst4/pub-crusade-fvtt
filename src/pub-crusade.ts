@@ -2,10 +2,14 @@ import * as constants from "./constants";
 import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 import { CharacterSheetClass } from "./module/CharacterSheetClass";
 import { PubCrusadeActor } from "./module/PubCrusadeActor";
+import processedStyles from "./sass/pub-crusade.scss?inline";
+
+// https://foundryvtt.com/article/system-development/
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
 
+// https://foundryvtt.com/article/system-data-models/
 export class CharacterData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
@@ -37,6 +41,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     };
   }
 }
+
+// Inject CSS
+// normal css imports don't work in foundry because the html is loaded from
+// foundry itself and vite's css injection never kicks in. So we have to
+// import the css as a string and inject it ourselves.
+const styleElement = document.createElement("style");
+styleElement.innerHTML = processedStyles;
+document.head.appendChild(styleElement);
 
 console.log("Pub Crusade loading");
 
