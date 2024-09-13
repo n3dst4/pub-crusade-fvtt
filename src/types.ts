@@ -18,6 +18,7 @@ export type CharacterSystemData = {
     name: string;
   }>;
   drinks: Array<{
+    id: string;
     what: string;
     where: string;
   }>;

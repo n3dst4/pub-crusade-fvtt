@@ -1,7 +1,7 @@
 import { ReactApplicationMixin } from "@lumphammer/shared-fvtt-bits/src/ReactApplicationMixin";
 import React from "react";
 
-import { PCSheet } from "../components/PCSheet";
+import { CharacterSheet } from "../components/CharacterSheet";
 import { reactTemplatePath, systemId } from "../constants";
 import { assertCharacterActor } from "../v10Types";
 
@@ -23,7 +23,7 @@ class CharacterSheetClassBase extends ActorSheet {
 
 const render = (sheet: CharacterSheetClassBase) => {
   assertCharacterActor(sheet.document);
-  return <PCSheet actor={sheet.document} foundryApplication={sheet} />;
+  return <CharacterSheet actor={sheet.document} foundryApplication={sheet} />;
 };
 
 export const CharacterSheetClass = ReactApplicationMixin(

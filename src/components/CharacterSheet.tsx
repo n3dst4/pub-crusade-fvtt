@@ -2,16 +2,18 @@ import React from "react";
 
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
+import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { Toggle } from "../copiedFromInvestigator/components/inputs/Toggle";
 import { tealTheme } from "../copiedFromInvestigator/themes/tealTheme";
 import { CharacterActor } from "../v10Types";
+import { DrinksRow } from "./inputs/DrinksRow";
 
-interface PCSheetProps {
+interface CharacterSheetProps {
   actor: CharacterActor;
   foundryApplication: Application;
 }
 
-export const PCSheet: React.FC<PCSheetProps> = ({
+export const CharacterSheet: React.FC<CharacterSheetProps> = ({
   actor,
   foundryApplication,
 }) => {
@@ -28,8 +30,10 @@ export const PCSheet: React.FC<PCSheetProps> = ({
           padding: "1em",
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
-          gridTemplateRows: "repeat(4, min-content) 1fr 1fr",
-          gap: "1em",
+          gridTemplateRows:
+            "repeat(4, min-content) [roll] min-content [roll-die] min-content [drinks-list] 1fr [notes] 1fr [end]",
+          rowGap: "0.3em",
+          columnGap: "1em",
         }}
       >
         <div css={{ gridColumn: "1/2", display: "flex", flexDirection: "row" }}>
@@ -125,7 +129,48 @@ export const PCSheet: React.FC<PCSheetProps> = ({
             />
           </label>
         </div>
-        <div css={{ gridColumn: "1/-1" }}>drinks</div>
+        <div css={{ gridColumn: "1/3", gridRow: "roll" }}>roll low</div>
+        <div css={{ gridColumn: "1/3", gridRow: "roll-die" }}>roll low die</div>
+        <div
+          css={{
+            gridColumn: "3/5",
+            gridRow: "span 2",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div css={{ fontSize: "3em" }}>{actor.system.drinks.length}</div>
+          <div>drinks</div>
+        </div>
+        <div css={{ gridColumn: "5/7", gridRow: "roll" }}>roll high</div>
+        <div css={{ gridColumn: "5/7", gridRow: "roll-die" }}>
+          roll high die
+        </div>
+        <div
+          css={{
+            gridColumn: "1/-1",
+            gridRow: "drinks-list",
+            display: "grid",
+            gridTemplateColumns: "subgrid",
+            alignContent: "start",
+          }}
+        >
+          <div css={{ gridColumn: "span 3" }}>What</div>
+          <div css={{ gridColumn: "span 3" }}>Where</div>
+          {actor.system.drinks.length === 0 && (
+            <div css={{ gridColumn: "1 / -1", justifySelf: "center" }}>
+              {"No drinks yet... you're alarmingly sober."}
+            </div>
+          )}
+          {actor.system.drinks.map(({ id, what, where }, index) => {
+            return <DrinksRow key={id} actor={actor} id={id} />;
+          })}
+          <div css={{ gridColumn: "3 / 5", justifySelf: "center" }}>
+            <Button onClick={actor.addDrink}>Add drink</Button>
+          </div>
+        </div>
         <div css={{ gridColumn: "1/4" }}>conditions</div>{" "}
         <div css={{ gridColumn: "4/-1" }}>notes</div>
       </div>
@@ -133,4 +178,4 @@ export const PCSheet: React.FC<PCSheetProps> = ({
   );
 };
 
-PCSheet.displayName = "PCSheet";
+CharacterSheet.displayName = "CharacterSheet";

@@ -2,6 +2,8 @@
 // that seem to come out here
 /* eslint "@typescript-eslint/explicit-function-return-type": "error" */
 
+import { nanoid } from "nanoid";
+
 import { assertCharacterActor } from "../v10Types";
 
 export class PubCrusadeActor extends Actor {
@@ -34,6 +36,49 @@ export class PubCrusadeActor extends Actor {
     await this.update({
       system: {
         orderQuest: { ...this.system.orderQuest, name: orderQuestName },
+      },
+    });
+  };
+
+  addDrink = async (): Promise<void> => {
+    assertCharacterActor(this);
+    await this.update({
+      system: {
+        drinks: [...this.system.drinks, { id: nanoid(), what: "", where: "" }],
+      },
+    });
+  };
+
+  setDrinkWhat = async (id: string, what: string): Promise<void> => {
+    assertCharacterActor(this);
+    const index = this.system.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.update({
+      system: {
+        drinks: [
+          ...this.system.drinks.slice(0, index),
+          { ...this.system.drinks[index], what },
+          ...this.system.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setDrinkWhere = async (id: string, where: string): Promise<void> => {
+    assertCharacterActor(this);
+    const index = this.system.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.update({
+      system: {
+        drinks: [
+          ...this.system.drinks.slice(0, index),
+          { ...this.system.drinks[index], where },
+          ...this.system.drinks.slice(index + 1),
+        ],
       },
     });
   };

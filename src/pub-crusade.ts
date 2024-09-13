@@ -34,6 +34,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       ),
       drinks: new ArrayField(
         new SchemaField({
+          id: new StringField(),
           what: new StringField(),
           where: new StringField(),
         }),
