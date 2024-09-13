@@ -83,6 +83,22 @@ export class PubCrusadeActor extends Actor {
     });
   };
 
+  deleteDrink = async (id: string): Promise<void> => {
+    assertCharacterActor(this);
+    const index = this.system.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.update({
+      system: {
+        drinks: [
+          ...this.system.drinks.slice(0, index),
+          ...this.system.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
   setOrderQuestCompleted = async (
     orderQuestCompleted: boolean,
   ): Promise<void> => {

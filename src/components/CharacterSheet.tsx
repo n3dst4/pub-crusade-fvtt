@@ -155,6 +155,9 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             display: "grid",
             gridTemplateColumns: "subgrid",
             alignContent: "start",
+            // padding: "2em",
+            rowGap: "0.5em",
+            columnGap: "0.2em",
           }}
         >
           <div css={{ gridColumn: "span 3" }}>What</div>
@@ -168,7 +171,12 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             return <DrinksRow key={id} actor={actor} id={id} />;
           })}
           <div css={{ gridColumn: "3 / 5", justifySelf: "center" }}>
-            <Button onClick={actor.addDrink}>Add drink</Button>
+            <Button
+              disabled={actor.system.drinks.length >= 9}
+              onClick={actor.addDrink}
+            >
+              Add drink
+            </Button>
           </div>
         </div>
         <div css={{ gridColumn: "1/4" }}>conditions</div>{" "}
