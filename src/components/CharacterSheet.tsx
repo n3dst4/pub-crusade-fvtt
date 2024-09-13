@@ -8,6 +8,7 @@ import { ConditionsList } from "./ConditionsList";
 import { DrinksCounter } from "./DrinksCounter";
 import { DrinksList } from "./DrinksList";
 import { Notes } from "./Notes";
+import { Panel } from "./Panel";
 import { Roll } from "./Roll";
 import { TopBits } from "./TopBits";
 
@@ -44,8 +45,10 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
         <div css={{ gridColumn: "1/2", display: "flex", flexDirection: "row" }}>
           <div>image</div>
         </div>
-        <div
+        <Panel
           css={{
+            padding: "0 0 0 0.5em",
+            background: "#fffa",
             gridColumn: "2/-1",
             display: "flex",
             flexDirection: "row",
@@ -56,7 +59,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           }}
         >
           <div>Pub Crusade</div>
-        </div>
+        </Panel>
         <TopBits actor={actor} css={{ gridColumn: "1/-1", gridRow: "top" }} />
         <Roll
           css={{ gridColumn: "1/3", gridRow: "roll" }}

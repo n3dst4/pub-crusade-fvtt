@@ -3,6 +3,7 @@ import React from "react";
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
 import { Toggle } from "../copiedFromInvestigator/components/inputs/Toggle";
 import { CharacterActor } from "../v10Types";
+import { Panel } from "./Panel";
 
 interface TopBitsProps {
   actor: CharacterActor;
@@ -11,9 +12,9 @@ interface TopBitsProps {
 
 export const TopBits: React.FC<TopBitsProps> = ({ actor, className }) => {
   return (
-    <div
+    <Panel
       className={className}
-      css={{ display: "grid", gridTemplateColumns: "subgrid" }}
+      css={{ display: "grid", gridTemplateColumns: "subgrid", rowGap: "0.5em" }}
     >
       <div css={{ gridColumn: "1/4" }}>
         <label>
@@ -33,7 +34,7 @@ export const TopBits: React.FC<TopBitsProps> = ({ actor, className }) => {
       </div>
       <div css={{ gridColumn: "6/7" }}>
         <label>
-          Die
+          Title Die
           <select
             css={{ display: "block" }}
             value={actor.system.titleDie}
@@ -100,7 +101,7 @@ export const TopBits: React.FC<TopBitsProps> = ({ actor, className }) => {
           />
         </label>
       </div>
-    </div>
+    </Panel>
   );
 };
 

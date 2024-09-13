@@ -39,7 +39,7 @@ export const DrinksCounter: React.FC<DrinksCounterProps> = ({
           fontSize: "2em",
         }}
       >
-        Drinks
+        {actor.system.drinks.length === 1 ? "Drink" : "Drinks"}
       </div>
     </Panel>
   );
