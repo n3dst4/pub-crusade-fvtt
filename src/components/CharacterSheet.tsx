@@ -6,6 +6,7 @@ import { CharacterActor } from "../v10Types";
 import { ConditionsList } from "./ConditionsList";
 import { DrinksCounter } from "./DrinksCounter";
 import { DrinksList } from "./DrinksList";
+import { Notes } from "./Notes";
 import { Roll } from "./Roll";
 import { TopBits } from "./TopBits";
 
@@ -68,8 +69,11 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           actor={actor}
           css={{ gridColumn: "1/-1", gridRow: "drinks-list" }}
         />
-        <ConditionsList actor={actor} css={{ gridColumn: "1/4" }} />
-        <div css={{ gridColumn: "4/-1" }}>notes</div>
+        <ConditionsList actor={actor} css={{ gridColumn: "1/3" }} />
+        <Notes
+          css={{ gridColumn: "3/-1", position: "relative" }}
+          actor={actor}
+        />
       </div>
     </CSSReset>
   );

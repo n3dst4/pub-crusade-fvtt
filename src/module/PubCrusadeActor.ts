@@ -228,6 +228,11 @@ export class PubCrusadeActor extends Actor {
       },
     });
   };
+
+  setNotes = async (notes: string): Promise<void> => {
+    assertCharacterActor(this);
+    await this.update({ system: { notes } });
+  };
 }
 
 declare global {

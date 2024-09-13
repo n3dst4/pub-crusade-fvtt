@@ -74,3 +74,7 @@ export function assertNotNull<T>(t: T | undefined | null): asserts t is T {
     throw new Error("t was undefined");
   }
 }
+
+export async function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

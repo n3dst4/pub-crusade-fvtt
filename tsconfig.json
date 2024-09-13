@@ -5,7 +5,7 @@
 		// override types to include vite
 		"types": [
 			"@league-of-foundry-developers/foundry-vtt-types",
-			// "@lumphammer/investigator-fvtt-types",
+			"@lumphammer/investigator-fvtt-types",
 			"vite/client"
 		],
 		"paths": {
