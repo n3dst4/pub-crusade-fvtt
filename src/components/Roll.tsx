@@ -9,6 +9,7 @@ interface RollProps {
   description: string;
   actor: CharacterActor;
   lowOrHigh: "low" | "high";
+  className?: string;
 }
 
 export const Roll: React.FC<RollProps> = ({
@@ -16,6 +17,7 @@ export const Roll: React.FC<RollProps> = ({
   description,
   actor,
   lowOrHigh,
+  className,
 }) => {
   const [modifier, setModifier] = React.useState(0);
   const [useTitleDie, setUseTitleDie] = React.useState(false);
@@ -33,7 +35,7 @@ export const Roll: React.FC<RollProps> = ({
   }, [actor, lowOrHigh, modifier, useTitleDie]);
 
   return (
-    <div>
+    <div className={className}>
       <div>{title}</div>
       <div>{description}</div>
       <div>

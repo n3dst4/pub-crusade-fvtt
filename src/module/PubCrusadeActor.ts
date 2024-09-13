@@ -186,58 +186,6 @@ export class PubCrusadeActor extends Actor {
       `,
     });
   };
-
-  // async testAbility(spend: number): Promise<void> {
-  //   assertGame(game);
-  //   assertAbilityItem(this);
-  //   if (this.actor === null) {
-  //     return;
-  //   }
-  //   const isBoosted = settings.useBoost.get() && this.system.boost;
-  //   const boost = isBoosted ? 1 : 0;
-  //   const situationalModifiers = this.activeSituationalModifiers.map((id) => {
-  //     assertAbilityItem(this);
-  //     const situationalModifier = this.system.situationalModifiers.find(
-  //       (situationalModifier) => situationalModifier?.id === id,
-  //     );
-  //     return situationalModifier;
-  //   });
-
-  //   let rollExpression = "1d6 + @spend";
-  //   const rollValues: Record<string, number> = { spend };
-  //   if (isBoosted) {
-  //     rollExpression += " + @boost";
-  //     rollValues["boost"] = boost;
-  //   }
-  //   for (const situationalModifier of situationalModifiers) {
-  //     if (situationalModifier === undefined) {
-  //       continue;
-  //     }
-  //     rollExpression += ` + @${situationalModifier.id}`;
-  //     rollValues[situationalModifier.id] = situationalModifier.modifier;
-  //   }
-
-  //   const roll = new Roll(rollExpression, rollValues);
-  //   await roll.evaluate({ async: true });
-  //   await roll.toMessage({
-  //     speaker: ChatMessage.getSpeaker({
-  //       actor: this.actor,
-  //     }),
-  //     content: `
-  //       <div
-  //         class="${constants.abilityChatMessageClassName}"
-  //         ${constants.htmlDataItemId}="${this.id}"
-  //         ${constants.htmlDataActorId}="${this.parent?.id ?? ""}"
-  //         ${constants.htmlDataMode}="${constants.htmlDataModeTest}"
-  //         ${constants.htmlDataName}="${this.name}"
-  //         ${constants.htmlDataImageUrl}="${this.img}"
-  //         ${constants.htmlDataTokenId}="${this.parent?.token?.id ?? ""}"
-  //       />
-  //     `,
-  //   });
-  //   const pool = this.system.pool - (Number(spend) || 0);
-  //   await this.update({ system: { pool } });
-  // }
 }
 
 declare global {

@@ -1,9 +1,9 @@
 import React, { Fragment, useCallback } from "react";
 
-import { AsyncTextInput } from "../../copiedFromInvestigator/components/inputs/AsyncTextInput";
-import { Button } from "../../copiedFromInvestigator/components/inputs/Button";
-import { confirmADoodleDo } from "../../copiedFromInvestigator/functions/confirmADoodleDo";
-import { CharacterActor } from "../../v10Types";
+import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
+import { Button } from "../copiedFromInvestigator/components/inputs/Button";
+import { confirmADoodleDo } from "../copiedFromInvestigator/functions/confirmADoodleDo";
+import { CharacterActor } from "../v10Types";
 
 interface DrinksRowProps {
   actor: CharacterActor;
