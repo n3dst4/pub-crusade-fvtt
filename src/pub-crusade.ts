@@ -14,7 +14,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       title: new StringField(),
-      titleDie: new StringField(),
+      titleDie: new StringField({ initial: "d6" }),
       notes: new HTMLField(),
       order: new StringField(),
       tenet: new StringField(),
@@ -80,7 +80,7 @@ declare global {
         constructor(fields: Record<string, any>);
       }
       class StringField {
-        constructor();
+        constructor(options?: Record<string, any>);
       }
       class FilePathField {
         constructor(fields: Record<string, any>);
