@@ -16,7 +16,7 @@ import { TopBits } from "./TopBits";
 
 interface CharacterSheetProps {
   actor: CharacterActor;
-  foundryApplication: Application;
+  foundryApplication: ActorSheet;
 }
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({
