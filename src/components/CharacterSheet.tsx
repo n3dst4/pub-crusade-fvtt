@@ -6,12 +6,10 @@ import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { loveYaLikeASister } from "../copiedFromInvestigator/themes/constants";
 import { pubTheme } from "../copiedFromInvestigator/themes/pubTheme";
 import { CharacterActor } from "../v10Types";
-import { ConditionsList } from "./ConditionsList";
 import { DrinksCounter } from "./DrinksCounter";
-import { DrinksList } from "./DrinksList";
-import { Notes } from "./Notes";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";
+import { Tabs } from "./Tabs";
 import { TopBits } from "./TopBits";
 
 interface CharacterSheetProps {
@@ -39,7 +37,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
           gridTemplateRows:
-            "min-content [top] min-content [roll] min-content [drinks-list] 1fr [notes] 1fr [end]",
+            "min-content [top] min-content [roll] min-content [tabs] 1fr [end]",
           rowGap: "0.5em",
           columnGap: "0.5em",
         }}
@@ -92,15 +90,11 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           actor={actor}
           lowOrHigh="high"
         />
-        <DrinksList
-          actor={actor}
-          css={{ gridColumn: "1/-1", gridRow: "drinks-list" }}
-        />
-        <ConditionsList actor={actor} css={{ gridColumn: "1/3" }} />
-        <Notes
-          css={{ gridColumn: "3/-1", position: "relative" }}
-          actor={actor}
-        />
+        <div
+          css={{ gridColumn: "1/-1", gridRow: "tabs", position: "relative" }}
+        >
+          <Tabs actor={actor} css={{ gridColumn: "1/-1", gridRow: "tabs" }} />
+        </div>
       </div>
     </CSSReset>
   );
