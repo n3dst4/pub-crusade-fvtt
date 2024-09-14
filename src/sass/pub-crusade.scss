@@ -6,6 +6,7 @@
 // @use "pico" with (
 //   $parent-selector: ".pico"
 // );
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap");
 
 @font-face {
   font-family: "Longdon Decorative Regular";
@@ -62,8 +63,6 @@ hr {
   width: calc(100% - 2em);
 }
 
-
-
 button.investigator-secret-hide-reveal-button {
   width: fit-content;
 }
@@ -80,4 +79,81 @@ button.investigator-secret-hide-reveal-button {
   font-size: 1em;
   // was 80%
   max-width: 100%;
+}
+
+.pub-crusade-roll {
+  font-size: 1.2em;
+  font-family: "Love Ya Like A Sister", sans-serif;
+  .description {
+    font-size: 1em;
+  }
+  .low-or-high {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  .drink-count {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  .formula {
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  .brilliant-catastrophe,
+  .success,
+  .failure {
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    text-align: center;
+    margin: 1em;
+    // box-shadow: 0 0 0.5em black;
+    text-shadow:
+      0 0 0.5em black,
+      0 0 0.5em black;
+    color: white;
+  }
+  .brilliant-catastrophe {
+    font-size: 1.5em;
+    background-image: linear-gradient(
+      90deg,
+      hsl(108deg 100% 50%) 0%,
+      hsl(65deg 100% 50%) 20%,
+      hsl(22deg 100% 50%) 40%,
+      hsl(22deg 100% 50%) 60%,
+      hsl(65deg 100% 50%) 80%,
+      hsl(108deg 100% 50%) 100%
+    );
+    box-shadow: 0 0 0.5em 0.1em rgb(102, 0, 0);
+  }
+  .success {
+    font-size: 1.5em;
+    background-image: linear-gradient(
+      90deg,
+      hsl(103deg 100% 74%) 0%,
+      hsl(129deg 100% 64%) 21%,
+      hsl(154deg 100% 55%) 41%,
+      hsl(153deg 100% 55%) 61%,
+      hsl(124deg 100% 64%) 81%,
+      hsl(95deg 100% 74%) 100%
+    );
+    box-shadow: 0 0 0.5em 0.1em #060;
+  }
+  .failure {
+    background-image: linear-gradient(
+      90deg,
+      hsl(39deg 100% 50%) 0%,
+      hsl(23deg 100% 50%) 20%,
+      hsl(8deg 100% 50%) 40%,
+      hsl(8deg 100% 50%) 60%,
+      hsl(23deg 100% 50%) 80%,
+      hsl(39deg 100% 50%) 100%
+    );
+    box-shadow: 0 0 0.5em 0.1em #600;
+  }
 }

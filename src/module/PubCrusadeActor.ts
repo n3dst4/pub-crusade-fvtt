@@ -175,13 +175,14 @@ export class PubCrusadeActor extends Actor {
         actor: this,
       }),
       content: `
-        <div
-        >
-          Tries to roll ${lowOrHigh} after ${this.system.drinks.length} drinks.
+        <div class="pub-crusade-roll">
+          <div class="description">
+            Tries to roll <span class="low-or-high">${lowOrHigh}</span>
+            after <span class="drink-count">${this.system.drinks.length}</span> drinks.
           </div>
-          <div>
-          ${roll.formula} = ${roll.total}
-        </div>
+          <div class="formula">
+            ${roll.formula} = <span class="total">${roll.total}</span>
+          </div>
         ${message}
       `,
     });
