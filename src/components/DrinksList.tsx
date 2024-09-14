@@ -32,7 +32,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
           "[headers] min-content [rows] auto [button] min-content",
         alignContent: "start",
         rowGap: "0.5em",
-        columnGap: "0.2em",
+        columnGap: "0.3em",
         overflow: "hidden",
         padding: "0.5em",
       }}
@@ -64,6 +64,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
             gridTemplateColumns: "subgrid",
             overflowY: "scroll",
             alignContent: "start",
+            rowGap: "0.5em",
           }}
         >
           {actor.system.drinks.map(({ id }) => {

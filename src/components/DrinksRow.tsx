@@ -51,7 +51,14 @@ export const DrinksRow: React.FC<DrinksRowProps> = ({ actor, id }) => {
           onChange={handleChangeWhat}
         />
       </div>
-      <div css={{ gridColumn: "2", display: "flex", flexDirection: "row" }}>
+      <div
+        css={{
+          gridColumn: "2",
+          display: "flex",
+          flexDirection: "row",
+          gap: "0.3em",
+        }}
+      >
         <AsyncTextInput value={drink.where} onChange={handleChangeWhere} />
         <Button onClick={handleDelete}>Delete</Button>
       </div>
