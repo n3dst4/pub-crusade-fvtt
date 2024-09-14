@@ -44,6 +44,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
             gridTemplateColumns: "subgrid",
             overflowY: "scroll",
             alignContent: "start",
+            rowGap: "0.3em",
           }}
         >
           {actor.system.conditions.map(({ id }) => {
