@@ -27,7 +27,7 @@ export const Tabs: React.FC<TabsProps> = ({ actor, className }) => {
         },
         { id: "notes", label: "Notes", content: <Notes actor={actor} /> },
       ]}
-      defaultTab="top"
+      defaultTab="drinks"
     />
   );
 };
