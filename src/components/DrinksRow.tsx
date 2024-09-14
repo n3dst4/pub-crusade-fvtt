@@ -45,7 +45,11 @@ export const DrinksRow: React.FC<DrinksRowProps> = ({ actor, id }) => {
   return (
     <Fragment>
       <div css={{ gridColumn: "1" }}>
-        <AsyncTextInput value={drink.what} onChange={handleChangeWhat} />
+        <AsyncTextInput
+          className="drink-what"
+          value={drink.what}
+          onChange={handleChangeWhat}
+        />
       </div>
       <div css={{ gridColumn: "2", display: "flex", flexDirection: "row" }}>
         <AsyncTextInput value={drink.where} onChange={handleChangeWhere} />

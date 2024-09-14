@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { CharacterActor } from "../v10Types";
 import { ConditionsRow } from "./ConditionsRow";
+import { useScrollAndFocus } from "./useScrollAndFocus";
 
 interface ConditionsListProps {
   actor: CharacterActor;
@@ -14,6 +15,13 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
   actor,
   className,
 }) => {
+  const { scrollerRef, triggerScroll } = useScrollAndFocus();
+
+  const handleClickAdd = useCallback(async () => {
+    await actor.addCondition();
+    triggerScroll();
+  }, [actor, triggerScroll]);
+
   return (
     <div
       className={className}
@@ -37,6 +45,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
       )}
       {actor.system.conditions.length > 0 && (
         <div
+          ref={scrollerRef}
           css={{
             gridColumn: "1 / -1",
             gridRow: "rows",
@@ -55,7 +64,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
       <div
         css={{ gridColumn: "1 / -1", gridRow: "button", justifySelf: "center" }}
       >
-        <Button onClick={actor.addCondition}>Add condition</Button>
+        <Button onClick={handleClickAdd}>Add condition</Button>
       </div>
     </div>
   );

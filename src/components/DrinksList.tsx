@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
 import { CharacterActor } from "../v10Types";
 import { DrinksRow } from "./DrinksRow";
+import { useScrollAndFocus } from "./useScrollAndFocus";
 
 interface DrinksListProps {
   actor: CharacterActor;
@@ -11,6 +12,15 @@ interface DrinksListProps {
 }
 
 export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
+  const { scrollerRef, triggerScroll } = useScrollAndFocus({
+    selector: ".drink-what",
+  });
+
+  const handleClickAdd = useCallback(async () => {
+    await actor.addDrink();
+    triggerScroll();
+  }, [actor, triggerScroll]);
+
   return (
     <div
       className={className}
@@ -46,6 +56,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
       )}
       {actor.system.drinks.length > 0 && (
         <div
+          ref={scrollerRef}
           css={{
             gridColumn: "1 / -1",
             gridRow: "rows",
@@ -65,7 +76,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
       >
         <Button
           disabled={actor.system.drinks.length >= 900}
-          onClick={actor.addDrink}
+          onClick={handleClickAdd}
         >
           Drink a drink
         </Button>
