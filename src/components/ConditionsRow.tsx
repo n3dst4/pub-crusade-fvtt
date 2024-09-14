@@ -25,7 +25,7 @@ export const ConditionsRow: React.FC<ConditionsRowProps> = ({ actor, id }) => {
 
   const handleDelete = useCallback(async () => {
     const yes = await confirmADoodleDo({
-      message: `Are you sure you want to delete "${condition.name}"?`,
+      message: `Are you sure you want to delete "${condition.name || "(blank)"}"?`,
       confirmText: "Yes",
       cancelText: "No",
       confirmIconClass: "fa-trash",
