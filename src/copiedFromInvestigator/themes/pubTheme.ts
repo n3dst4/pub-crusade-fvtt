@@ -1,7 +1,24 @@
+import { SeedColorsV1 } from "@lumphammer/investigator-fvtt-types";
+
 import { systemId } from "../../constants";
 import { averiaLibre } from "./constants";
 import { themeFactory } from "./functions";
 import { ThemeV1 } from "./types";
+
+const colors: SeedColorsV1 = {
+  accent: "#8f4927",
+  accentContrast: "white",
+  glow: "#5effff",
+  wallpaper: "#ddd",
+  backgroundSecondary: "rgba(255,255,255,0.2)",
+  backgroundPrimary: "rgba(255,255,255,0.5)",
+  backgroundButton: "rgba(0,0,0,0.1)",
+  text: "#433",
+};
+
+const shadowBase = "#000000";
+const shadow1 = `${shadowBase}17`;
+const shadow2 = `${shadowBase}00`;
 
 export const pubTheme: ThemeV1 = themeFactory({
   schemaVersion: "v1",
@@ -34,14 +51,48 @@ export const pubTheme: ThemeV1 = themeFactory({
         "radial-gradient(closest-side, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%)",
     },
   },
-  colors: {
-    accent: "#8f4927",
-    accentContrast: "white",
-    glow: "#5effff",
-    wallpaper: "#ddd",
-    backgroundSecondary: "rgba(255,255,255,0.2)",
-    backgroundPrimary: "rgba(255,255,255,0.5)",
-    backgroundButton: "rgba(0,0,0,0.1)",
-    text: "#433",
+  tabActiveStyle: {
+    background: colors.backgroundPrimary,
+    ":hover": {
+      textShadow: "none",
+    },
+    borderStyle: "solid solid none solid",
   },
+  tabStyle: {
+    flex: 1,
+    padding: "0.3em",
+    display: "inline-block",
+    textAlign: "center",
+    fontSize: "1.4em",
+    background: colors.backgroundSecondary,
+    borderRadius: "0.5em 0.5em 0 0",
+    color: colors.accent,
+    ":hover": {
+      textShadow: `0 0 0.3em ${colors.glow}`,
+    },
+    borderWidth: "1px",
+    borderStyle: "solid solid solid solid",
+    borderColor: "#0007",
+    backgroundImage: `linear-gradient(to top, ${shadow1} 0%, ${shadow2} 15%)`,
+  },
+  tabSpacerStyle: {
+    width: "0.5em",
+    borderWidth: "1px",
+    borderStyle: "none none solid none",
+    borderColor: "#0007",
+  },
+  panelStylePrimary: {
+    backgroundColor: colors.backgroundPrimary,
+    borderWidth: "1px",
+    borderStyle: "none solid solid solid",
+    borderColor: "#0007",
+  },
+  tabContentStyle: {
+    backgroundColor: colors.backgroundPrimary,
+    borderWidth: "1px",
+    borderStyle: "none solid solid solid",
+    borderColor: "#0007",
+  },
+
+  colors,
 });
