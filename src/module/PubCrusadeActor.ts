@@ -165,10 +165,10 @@ export class PubCrusadeActor extends Actor {
     const isComplicated = total === this.system.drinks.length;
 
     const message = isComplicated
-      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe!</div>"
+      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe</div>"
       : isSuccess
-        ? "<div class='success'>Success!</div>"
-        : "<div class='failure'>Failure!</div>";
+        ? "<div class='success'>Success</div>"
+        : "<div class='failure'>Failure</div>";
 
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({
