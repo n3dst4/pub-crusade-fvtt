@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
+import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { RichTextEditor } from "../copiedFromInvestigator/components/inputs/RichTextEditor";
 import { CharacterActor } from "../v10Types";
-import { Panel } from "./Panel";
 
 interface NotesProps {
   actor: CharacterActor;
@@ -28,22 +28,34 @@ export const Notes: React.FC<NotesProps> = ({ actor, className }) => {
   };
 
   return (
-    <Panel className={className}>
+    <div
+      className={className}
+      css={{
+        ...absoluteCover,
+        display: "flex",
+        flexDirection: "column",
+        padding: "0.5em",
+      }}
+    >
       {!editMode && (
-        <h2>
-          Notes <a onClick={handleClickEdit}>Edit</a>
-        </h2>
+        <>
+          <h2 css={{ position: "sticky", top: 0 }}>
+            Notes <a onClick={handleClickEdit}>Edit</a>
+          </h2>
+          <div
+            css={{ flex: 1, overflowY: "scroll" }}
+            dangerouslySetInnerHTML={{ __html: actor.system.notes }}
+          />
+        </>
       )}
-      {editMode ? (
+      {editMode && (
         <RichTextEditor
           value={actor.system.notes}
           onChange={handleChange}
           onSave={handleSave}
         />
-      ) : (
-        <div dangerouslySetInnerHTML={{ __html: actor.system.notes }} />
       )}
-    </Panel>
+    </div>
   );
 };
 
