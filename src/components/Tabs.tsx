@@ -12,6 +12,8 @@ interface TabsProps {
 }
 
 export const Tabs: React.FC<TabsProps> = ({ actor, className }) => {
+  const conditionCount = actor.system.conditions.length;
+
   return (
     <TabContainer
       tabs={[
@@ -22,7 +24,7 @@ export const Tabs: React.FC<TabsProps> = ({ actor, className }) => {
         },
         {
           id: "conditions",
-          label: "Conditions",
+          label: `Conditions (${conditionCount})`,
           content: <ConditionsList actor={actor} />,
         },
         { id: "notes", label: "Notes", content: <Notes actor={actor} /> },
