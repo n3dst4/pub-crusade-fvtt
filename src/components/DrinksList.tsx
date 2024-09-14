@@ -19,7 +19,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gridTemplateRows:
-          "[headers] min-content [rows] minmax(0, 1fr) [button] min-content",
+          "[headers] min-content [rows] auto [button] min-content",
         alignContent: "start",
         rowGap: "0.5em",
         columnGap: "0.2em",

@@ -21,7 +21,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
         ...absoluteCover,
         display: "grid",
         gridTemplateColumns: "1fr",
-        gridTemplateRows: "[rows] minmax(0, 1fr) [button] min-content",
+        gridTemplateRows: "[rows] auto [button] min-content",
         alignContent: "start",
         rowGap: "0.5em",
         columnGap: "0.2em",
