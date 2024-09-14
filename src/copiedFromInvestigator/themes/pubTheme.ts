@@ -8,7 +8,7 @@ import { ThemeV1 } from "./types";
 const colors: SeedColorsV1 = {
   accent: "#8f4927",
   accentContrast: "white",
-  glow: "#5effff",
+  glow: "#db9c7e",
   wallpaper: "#ddd",
   backgroundSecondary: "rgba(255,255,255,0.2)",
   backgroundPrimary: "rgba(255,255,255,0.5)",

@@ -181,7 +181,7 @@ export const CSSReset: React.FC<CSSResetProps> = ({
                 ":focus": {
                   borderColor: theme.colors.accent,
                   outline: "none",
-                  boxShadow: `0 0 0.5em ${theme.colors.glow}`,
+                  boxShadow: `0 0 0.5em ${theme.colors.glow} inset`,
                 },
                 "&:hover": {
                   borderStyle: "solid",
