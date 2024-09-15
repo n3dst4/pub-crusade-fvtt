@@ -23,7 +23,27 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
   foundryApplication,
 }) => {
   return (
-    <CSSReset theme={pubTheme} mode="large">
+    <CSSReset
+      theme={pubTheme}
+      mode="large"
+      css={{
+        "&&": {
+          select: {
+            background: pubTheme.colors.backgroundSecondary,
+            accentColor: pubTheme.colors.accent,
+            option: {
+              background: "unset",
+              color: "unset",
+            },
+            ":focus": {
+              borderColor: pubTheme.colors.accent,
+              outline: "none",
+              boxShadow: `0 0 0.5em ${pubTheme.colors.glow}`,
+            },
+          },
+        },
+      }}
+    >
       <div
         className="css-reset"
         css={{
