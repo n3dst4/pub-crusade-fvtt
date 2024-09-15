@@ -53,23 +53,35 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           <ImagePickle
             subject={actor}
             application={foundryApplication}
-            css={{ ...absoluteCover, transform: "rotateZ(-4deg)" }}
+            css={{ ...absoluteCover, transform: "rotateZ(-2deg)" }}
           />
         </div>
         <Panel
           css={{
             padding: "0 0 0 0.5em",
-            background: "#fffa",
+            background: `
+              radial-gradient(closest-side, #fff3 0%, #fff0 100%),
+              linear-gradient(180deg, #444 0%, #000 100%)`,
+            boxShadow: "0 0 1em 0 #fff3 inset",
+            borderStyle: "solid",
+            borderWidth: "4px",
+            borderRadius: "0.1em",
+            borderColor: "#111 #666 #666 #111",
+            textShadow: "0 0 0.5em #aaa",
+            transform: "rotateZ(0.5deg)",
+            color: "#eee",
+            textAlign: "center",
             gridColumn: "2/-1",
             display: "flex",
             flexDirection: "row",
+            justifyContent: "center",
             font: loveYaLikeASister.fontFamily,
             fontSize: "4em",
             fontVariant: "small-caps",
             fontWeight: "bold",
           }}
         >
-          <div>Pub Crusade</div>
+          Pub Crusade
         </Panel>
         <TopBits actor={actor} css={{ gridColumn: "1/-1", gridRow: "top" }} />
         <Roll
