@@ -7,7 +7,7 @@ on:
 env:
   MANIFEST_FILE_NAME: "system.json"
   PUBLIC_PATH: "public"
-  PACKAGE_FILE_NAME: "pubcrusade.zip"
+  PACKAGE_FILE_NAME: "pub-crusade.zip"
   PACKAGE_PATH: package
   DOWNLOAD_BASE: "https://github.com/${{github.repository}}/releases/download"
 
@@ -45,7 +45,7 @@ jobs:
     with:
       manifest_file_name: "system.json"
       public_path: "public"
-      package_file_name: "pubcrusade.zip"
+      package_file_name: "pub-crusade.zip"
       pnpm_version: "9"
       package_path: "build_package"
 
