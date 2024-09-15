@@ -100,14 +100,14 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           css={{
             gridColumn: "1/-1",
             gridRow: "top",
-            transform: "rotateZ(-0.5deg)",
+            // transform: "rotateZ(-0.5deg)",
           }}
         />
         <Roll
           css={{
             gridColumn: "1/3",
             gridRow: "roll",
-            transform: "rotateZ(0.5deg)",
+            // transform: "rotateZ(0.5deg)",
           }}
           title="Roll low"
           description="(violence, escalation, tomfoolery)"
@@ -122,7 +122,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           css={{
             gridColumn: "5/7",
             gridRow: "roll",
-            transform: "rotateZ(0.5deg)",
+            // transform: "rotateZ(0.5deg)",
           }}
           title="Roll high"
           description="(social, precision, be sensible)"
@@ -134,7 +134,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             gridColumn: "1/-1",
             gridRow: "tabs",
             position: "relative",
-            transform: "rotateZ(0.5deg)",
+            // transform: "rotateZ(0.5deg)",
           }}
         >
           <Tabs actor={actor} css={{ gridColumn: "1/-1", gridRow: "tabs" }} />
