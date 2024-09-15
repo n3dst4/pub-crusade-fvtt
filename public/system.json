@@ -6,9 +6,8 @@
   "authors": [{ "name": "Neil de Carteret" }],
   "esmodules": ["pub-crusade.js"],
   "compatibility": {
-    "minimum": "11",
-    "verified": "12",
-    "maximum": "12"
+    "minimum": "12",
+    "verified": "12"
   },
   "documentTypes": {
     "Actor": {
