@@ -16,5 +16,22 @@
         "htmlFields": ["notes"]
       }
     }
-  }
+  },
+  "packs": [
+    {
+      "name": "pubcrusadetables",
+      "label": "Pub Crusade Tables",
+      "system": "pub-crusade",
+      "path": "packs/pub-crusade-tables.db",
+      "type": "RollTable"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Pub Crusade",
+      "sorting": "m",
+      "packs": ["pubcrusadetables"],
+      "color": "#8f4927"
+    }
+  ]
 }
