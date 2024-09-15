@@ -37,12 +37,20 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
         padding: "0.5em",
       }}
     >
-      <h2 css={{ gridColumn: "1", gridRow: "headers", "&&": { margin: 0 } }}>
-        What
-      </h2>
-      <h2 css={{ gridColumn: "2", gridRow: "headers", "&&": { margin: 0 } }}>
-        Where
-      </h2>
+      {actor.system.drinks.length > 0 && (
+        <>
+          <h2
+            css={{ gridColumn: "1", gridRow: "headers", "&&": { margin: 0 } }}
+          >
+            What
+          </h2>
+          <h2
+            css={{ gridColumn: "2", gridRow: "headers", "&&": { margin: 0 } }}
+          >
+            Where
+          </h2>
+        </>
+      )}
       {actor.system.drinks.length === 0 && (
         <div
           css={{
@@ -51,7 +59,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
             justifySelf: "center",
           }}
         >
-          {"No drinks yet... you're alarmingly sober."}
+          {"No drinks yet. You're alarmingly sober."}
         </div>
       )}
       {actor.system.drinks.length > 0 && (
