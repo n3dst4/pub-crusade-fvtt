@@ -3,6 +3,7 @@ import React from "react";
 import { loveYaLikeASister } from "../copiedFromInvestigator/themes/constants";
 import { CharacterActor } from "../v10Types";
 import { Panel } from "./Panel";
+import { blackboard } from "./styles";
 
 interface DrinksCounterProps {
   actor: CharacterActor;
@@ -17,6 +18,7 @@ export const DrinksCounter: React.FC<DrinksCounterProps> = ({
     <Panel
       className={className}
       css={{
+        ...blackboard,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

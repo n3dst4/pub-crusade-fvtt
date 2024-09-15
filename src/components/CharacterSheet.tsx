@@ -9,6 +9,7 @@ import { CharacterActor } from "../v10Types";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";
+import { blackboard } from "./styles";
 import { Tabs } from "./Tabs";
 import { TopBits } from "./TopBits";
 
@@ -58,18 +59,8 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
         </div>
         <Panel
           css={{
+            ...blackboard,
             padding: "0 0 0 0.5em",
-            background: `
-              radial-gradient(closest-side, #fff3 0%, #fff0 100%),
-              linear-gradient(180deg, #444 0%, #000 100%)`,
-            boxShadow: "0 0 1em 0 #fff3 inset",
-            borderStyle: "solid",
-            borderWidth: "4px",
-            borderRadius: "0.1em",
-            borderColor: "#111 #666 #666 #111",
-            textShadow: "0 0 0.5em #aaa",
-            transform: "rotateZ(0.5deg)",
-            color: "#eee",
             textAlign: "center",
             gridColumn: "2/-1",
             display: "flex",
