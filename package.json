@@ -3,6 +3,7 @@
   "version": "1.0.0-alpha.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Where we're going, we don't need tests!\"",
     "build": "vite build",
