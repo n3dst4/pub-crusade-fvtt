@@ -25,6 +25,7 @@ export const DrinksCounter: React.FC<DrinksCounterProps> = ({
         alignItems: "center",
         padding: "0",
         font: loveYaLikeASister.fontFamily,
+        transform: "rotateZ(-0.5deg)",
       }}
     >
       <div

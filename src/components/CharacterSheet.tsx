@@ -70,13 +70,25 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             fontSize: "4em",
             fontVariant: "small-caps",
             fontWeight: "bold",
+            transform: "rotateZ(0.5deg)",
           }}
         >
           Pub Crusade
         </Panel>
-        <TopBits actor={actor} css={{ gridColumn: "1/-1", gridRow: "top" }} />
+        <TopBits
+          actor={actor}
+          css={{
+            gridColumn: "1/-1",
+            gridRow: "top",
+            transform: "rotateZ(-0.5deg)",
+          }}
+        />
         <Roll
-          css={{ gridColumn: "1/3", gridRow: "roll" }}
+          css={{
+            gridColumn: "1/3",
+            gridRow: "roll",
+            transform: "rotateZ(0.5deg)",
+          }}
           title="Roll low"
           description="(violence, escalation, tomfoolery)"
           actor={actor}
@@ -87,14 +99,23 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           css={{ gridColumn: "3/5", gridRow: "roll" }}
         />
         <Roll
-          css={{ gridColumn: "5/7", gridRow: "roll" }}
+          css={{
+            gridColumn: "5/7",
+            gridRow: "roll",
+            transform: "rotateZ(0.5deg)",
+          }}
           title="Roll high"
           description="(social, precision, be sensible)"
           actor={actor}
           lowOrHigh="high"
         />
         <div
-          css={{ gridColumn: "1/-1", gridRow: "tabs", position: "relative" }}
+          css={{
+            gridColumn: "1/-1",
+            gridRow: "tabs",
+            position: "relative",
+            transform: "rotateZ(0.5deg)",
+          }}
         >
           <Tabs actor={actor} css={{ gridColumn: "1/-1", gridRow: "tabs" }} />
         </div>
