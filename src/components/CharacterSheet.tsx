@@ -1,10 +1,10 @@
 import React from "react";
 
+import { loveYaLikeASister } from "../constants";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
-import { loveYaLikeASister } from "../copiedFromInvestigator/themes/constants";
-import { pubTheme } from "../copiedFromInvestigator/themes/pubTheme";
+import { pubTheme } from "../themes/pubTheme";
 import { CharacterActor } from "../v10Types";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
@@ -33,7 +33,6 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
           width: "100%",
           height: "100%",
           // backgroundColor: "#ecb692",
-          backgroundColor: "#dbb9a2",
           padding: "1em",
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
@@ -71,6 +70,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             fontVariant: "small-caps",
             fontWeight: "bold",
             transform: "rotateZ(0.5deg)",
+            boxShadow: "0 0 0.2em #fffb",
           }}
         >
           Pub Crusade

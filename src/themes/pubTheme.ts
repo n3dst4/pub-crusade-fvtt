@@ -1,17 +1,17 @@
 import { SeedColorsV1 } from "@lumphammer/investigator-fvtt-types";
 
-import { systemId } from "../../constants";
-import { averiaLibre } from "./constants";
-import { themeFactory } from "./functions";
-import { ThemeV1 } from "./types";
+import { systemId } from "../constants";
+import { averiaLibre } from "../copiedFromInvestigator/themes/constants";
+import { themeFactory } from "../copiedFromInvestigator/themes/functions";
+import { ThemeV1 } from "../copiedFromInvestigator/themes/types";
 
 const colors: SeedColorsV1 = {
   accent: "#8f4927",
   accentContrast: "white",
   glow: "#db9c7e",
-  wallpaper: "#ddd",
-  backgroundSecondary: "rgba(255,255,255,0.2)",
-  backgroundPrimary: "rgba(255,255,255,0.5)",
+  wallpaper: "#34231a",
+  backgroundSecondary: "#fff9",
+  backgroundPrimary: "#fffb",
   backgroundButton: "rgba(0,0,0,0.1)",
   text: "#433",
 };
@@ -28,7 +28,10 @@ export const pubTheme: ThemeV1 = themeFactory({
     ${averiaLibre.importStatement}
   `,
   largeSheetRootStyle: {
-    backgroundImage: `url(systems/${systemId}/assets/wallpaper/marjanblan-5Ft4NWTmeJE-unsplash.webp)`,
+    backgroundImage: `
+    linear-gradient(180deg, #fff4 0%, #fffb 50%, #fff2 100%),
+    url(systems/${systemId}/assets/rachel-kelli-n7MMvJFAp8Q-unsplash.webp)
+    `,
   },
   bodyFont: averiaLibre.fontFamily,
   displayFont: "normal normal normal 1em 'Averia Libre', serif",

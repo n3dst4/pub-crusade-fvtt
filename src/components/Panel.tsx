@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { ThemeContext } from "../copiedFromInvestigator/themes/ThemeContext";
 
 interface PanelProps extends React.PropsWithChildren {
   className?: string;
 }
 
 export const Panel: React.FC<PanelProps> = ({ children, className }) => {
+  const theme = useContext(ThemeContext);
+
   return (
     <div
       className={className}
@@ -12,7 +16,7 @@ export const Panel: React.FC<PanelProps> = ({ children, className }) => {
         position: "relative",
         border: "1px solid #0007",
         padding: "0.5em",
-        backgroundColor: "#fff6",
+        backgroundColor: theme.colors.backgroundPrimary,
       }}
     >
       {children}
