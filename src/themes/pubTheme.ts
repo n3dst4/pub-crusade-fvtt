@@ -10,7 +10,7 @@ const colors: SeedColorsV1 = {
   accentContrast: "white",
   glow: "#db9c7e",
   wallpaper: "#34231a",
-  backgroundSecondary: "#fff9",
+  backgroundSecondary: "#fff6",
   backgroundPrimary: "#fffb",
   backgroundButton: "rgba(0,0,0,0.1)",
   text: "#433",
