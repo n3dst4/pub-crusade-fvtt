@@ -70,7 +70,7 @@ export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
             gridRow: "rows",
             display: "grid",
             gridTemplateColumns: "subgrid",
-            overflowY: "scroll",
+            overflowY: "auto",
             alignContent: "start",
             rowGap: "0.5em",
           }}
