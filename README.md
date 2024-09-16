@@ -11,3 +11,9 @@ Pub Crusade is copyright... Grant Howitt, or Rowan, Rook,& Decard. Anyway the na
 For now: head to the [releases page](https://github.com/n3dst4/pub-crusade-fvtt/releases) and grab the manifest URL for the latest release.
 
 Paste it into the manifest URL field in the Foundry VTT "install a system" dialog.
+
+## Other Acknowledgements
+
+[Photograph by Rachel Kelli](https://unsplash.com/photos/brown-wooden-surface-with-white-textile-n7MMvJFAp8Q_) used under the [Unsplash license](https://unsplash.com/license).
+
+[Love Ya Like A Sister](https://fonts.google.com/specimen/Love+Ya+Like+A+Sister) font by Kimberly Geswein, used under the [SIL Open Font License 1.1.](https://openfontlicense.org/.)
