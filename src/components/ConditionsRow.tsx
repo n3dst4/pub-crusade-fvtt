@@ -39,7 +39,6 @@ export const ConditionsRow: React.FC<ConditionsRowProps> = ({ actor, id }) => {
     <Fragment>
       <div
         css={{
-          gridColumn: "span 3",
           display: "flex",
           flexDirection: "row",
           gap: "0.3em",
