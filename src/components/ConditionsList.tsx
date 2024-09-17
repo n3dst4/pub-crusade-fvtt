@@ -51,7 +51,7 @@ export const ConditionsList: React.FC<ConditionsListProps> = ({
             gridRow: "rows",
             display: "grid",
             gridTemplateColumns: "subgrid",
-            overflowY: "scroll",
+            overflowY: "auto",
             alignContent: "start",
             rowGap: "0.3em",
           }}
