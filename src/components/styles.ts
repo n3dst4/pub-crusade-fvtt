@@ -7,7 +7,7 @@ export const blackboard: CSSObject = {
   boxShadow: "0 0 1em 0 #fff3 inset",
   borderStyle: "solid",
   borderWidth: "4px",
-  borderRadius: "0.1em",
+  borderRadius: "0.3rem",
   borderColor: "#111 #666 #666 #111",
   textShadow: "0 0 0.5em #aaa",
   color: "#eee",
