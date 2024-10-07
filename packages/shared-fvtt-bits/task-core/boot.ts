@@ -17,7 +17,7 @@ function synchronise(
 ) {
   chokidar
     .watch(srcDirPath, { ignoreInitial: true })
-    .on("all", (eventName, affectedPath) => {
+    .on("all", (eventName: string, affectedPath: string) => {
       const destPath = path.join(
         destDirPath,
         path.relative(srcDirPath, affectedPath),
@@ -47,6 +47,7 @@ export async function boot({
   config: { rootPath, publicPath, manifestName, buildPath, packagePath },
   commands,
 }: BootArgs) {
+  process.chdir(rootPath);
   const manifestPath = path.join(publicPath, manifestName);
   const manifest = JSON.parse(
     (await fs.readFile(manifestPath)).toString(),
@@ -55,6 +56,7 @@ export async function boot({
   let foundryConfig, linkDir;
   try {
     foundryConfig = (await fs.readJSON("foundryconfig.json")) as FoundryConfig;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
   } catch (e) {
     log(chalk.magenta("foundryconfig.json not found - assuming CI"));
   }
@@ -81,7 +83,9 @@ export async function boot({
     proc.command(
       command.name,
       command.description ?? "",
-      () => {},
+      () => {
+        // no builder
+      },
       () => command(finalConfig),
     );
   }
