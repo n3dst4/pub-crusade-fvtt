@@ -1,4 +1,3 @@
-import React from "react";
 
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
 import { Toggle } from "../copiedFromInvestigator/components/inputs/Toggle";
@@ -10,12 +9,7 @@ interface TopBitsProps {
   className?: string;
 }
 
-export const TopBits = (
-  {
-    actor,
-    className
-  }: TopBitsProps
-) => {
+export const TopBits = ({ actor, className }: TopBitsProps) => {
   return (
     <Panel
       className={className}

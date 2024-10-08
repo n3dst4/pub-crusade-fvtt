@@ -2,7 +2,7 @@ import createCache from "@emotion/cache";
 import { css } from "@emotion/css";
 import { CacheProvider as EmotionCacheProvider, Global } from "@emotion/react";
 import { FoundryAppContext } from "@lumphammer/shared-fvtt-bits/src/FoundryAppContext";
-import React, {
+import {
   ReactNode,
   useContext,
   useEffect,
@@ -23,15 +23,13 @@ type CSSResetProps = {
   noStyleAppWindow?: boolean;
 };
 
-export const CSSReset = (
-  {
-    className,
-    children,
-    theme,
-    mode,
-    noStyleAppWindow = false
-  }: CSSResetProps
-) => {
+export const CSSReset = ({
+  className,
+  children,
+  theme,
+  mode,
+  noStyleAppWindow = false,
+}: CSSResetProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   // add app window styles if there's a continaing app window

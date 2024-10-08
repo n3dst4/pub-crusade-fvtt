@@ -1,4 +1,3 @@
-import React from "react";
 
 import { loveYaLikeASister } from "../constants";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
@@ -18,12 +17,10 @@ interface CharacterSheetProps {
   foundryApplication: ActorSheet;
 }
 
-export const CharacterSheet = (
-  {
-    actor,
-    foundryApplication
-  }: CharacterSheetProps
-) => {
+export const CharacterSheet = ({
+  actor,
+  foundryApplication,
+}: CharacterSheetProps) => {
   return (
     <CSSReset
       theme={pubTheme}

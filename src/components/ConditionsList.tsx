@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
@@ -11,12 +11,7 @@ interface ConditionsListProps {
   className?: string;
 }
 
-export const ConditionsList = (
-  {
-    actor,
-    className
-  }: ConditionsListProps
-) => {
+export const ConditionsList = ({ actor, className }: ConditionsListProps) => {
   const { scrollerRef, triggerScroll } = useScrollAndFocus();
 
   const handleClickAdd = useCallback(async () => {

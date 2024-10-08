@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { RichTextEditor } from "../copiedFromInvestigator/components/inputs/RichTextEditor";
@@ -9,12 +9,7 @@ interface NotesProps {
   className?: string;
 }
 
-export const Notes = (
-  {
-    actor,
-    className
-  }: NotesProps
-) => {
+export const Notes = ({ actor, className }: NotesProps) => {
   const [editMode, setEditMode] = useState(false);
   const temp = useRef(actor.system.notes);
 

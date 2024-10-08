@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react";
+import { Fragment, useCallback } from "react";
 
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
@@ -10,12 +10,7 @@ interface DrinksRowProps {
   id: string;
 }
 
-export const DrinksRow = (
-  {
-    actor,
-    id
-  }: DrinksRowProps
-) => {
+export const DrinksRow = ({ actor, id }: DrinksRowProps) => {
   const drink = actor.system.drinks.find(({ id: i }) => i === id);
   if (drink === undefined) {
     throw new Error("invalid drink id");

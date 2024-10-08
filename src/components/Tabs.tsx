@@ -1,4 +1,3 @@
-import React from "react";
 
 import { TabContainer } from "../copiedFromInvestigator/components/TabContainer";
 import { CharacterActor } from "../v10Types";
@@ -11,12 +10,7 @@ interface TabsProps {
   className?: string;
 }
 
-export const Tabs = (
-  {
-    actor,
-    className
-  }: TabsProps
-) => {
+export const Tabs = ({ actor, className }: TabsProps) => {
   const conditionCount = actor.system.conditions.length;
 
   return (

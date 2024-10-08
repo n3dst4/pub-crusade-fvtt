@@ -6,12 +6,7 @@ interface PanelProps extends React.PropsWithChildren {
   className?: string;
 }
 
-export const Panel = (
-  {
-    children,
-    className
-  }: PanelProps
-) => {
+export const Panel = ({ children, className }: PanelProps) => {
   const theme = useContext(ThemeContext);
 
   return (

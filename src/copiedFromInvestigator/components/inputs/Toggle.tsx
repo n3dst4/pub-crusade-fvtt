@@ -1,5 +1,5 @@
 import * as Switch from "@radix-ui/react-switch";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import { systemLogger } from "../../functions/utilities";
 import { ThemeContext } from "../../themes/ThemeContext";
@@ -11,13 +11,7 @@ type ToggleProps = {
   className?: string;
 };
 
-export const Toggle = (
-  {
-    checked,
-    onChange,
-    className
-  }: ToggleProps
-) => {
+export const Toggle = ({ checked, onChange, className }: ToggleProps) => {
   const id = useContext(IdContext);
   const theme = useContext(ThemeContext);
   return (

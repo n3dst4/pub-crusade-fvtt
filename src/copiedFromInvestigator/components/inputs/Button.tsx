@@ -6,14 +6,12 @@ type ButtonProps = ComponentProps<"button"> &
     className?: string;
   }>;
 
-export const Button = (
-  {
-    children,
-    onClick,
-    className,
-    ...rest
-  }: ButtonProps
-) => {
+export const Button = ({
+  children,
+  onClick,
+  className,
+  ...rest
+}: ButtonProps) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     onClick();

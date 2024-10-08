@@ -1,4 +1,3 @@
-import React from "react";
 
 import { useAsyncUpdate } from "../../hooks/useAsyncUpdate";
 import { TextInput } from "./TextInput";
@@ -12,16 +11,14 @@ export type AsyncTextInputProps = {
   placeholder?: string;
 };
 
-export const AsyncTextInput = (
-  {
-    value = "",
-    onChange: onChangeOrig,
-    className,
-    disabled,
-    placeholder,
-    index
-  }: AsyncTextInputProps
-) => {
+export const AsyncTextInput = ({
+  value = "",
+  onChange: onChangeOrig,
+  className,
+  disabled,
+  placeholder,
+  index,
+}: AsyncTextInputProps) => {
   const { onChange, onFocus, onBlur, display } = useAsyncUpdate(
     value,
     onChangeOrig,

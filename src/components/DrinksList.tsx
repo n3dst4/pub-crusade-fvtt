@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
@@ -11,12 +11,7 @@ interface DrinksListProps {
   className?: string;
 }
 
-export const DrinksList = (
-  {
-    actor,
-    className
-  }: DrinksListProps
-) => {
+export const DrinksList = ({ actor, className }: DrinksListProps) => {
   const { scrollerRef, triggerScroll } = useScrollAndFocus({
     selector: ".drink-what",
   });

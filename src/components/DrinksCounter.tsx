@@ -1,4 +1,3 @@
-import React from "react";
 
 import { loveYaLikeASister } from "../constants";
 import { CharacterActor } from "../v10Types";
@@ -10,12 +9,7 @@ interface DrinksCounterProps {
   className?: string;
 }
 
-export const DrinksCounter = (
-  {
-    actor,
-    className
-  }: DrinksCounterProps
-) => {
+export const DrinksCounter = ({ actor, className }: DrinksCounterProps) => {
   return (
     <Panel
       className={className}

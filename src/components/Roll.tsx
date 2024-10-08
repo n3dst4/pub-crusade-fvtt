@@ -13,15 +13,13 @@ interface RollProps {
   className?: string;
 }
 
-export const Roll = (
-  {
-    title,
-    description,
-    actor,
-    lowOrHigh,
-    className
-  }: RollProps
-) => {
+export const Roll = ({
+  title,
+  description,
+  actor,
+  lowOrHigh,
+  className,
+}: RollProps) => {
   const [modifier, setModifier] = React.useState(0);
   const [useTitleDie, setUseTitleDie] = React.useState(false);
 

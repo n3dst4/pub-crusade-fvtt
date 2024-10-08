@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react";
+import { Fragment, useCallback } from "react";
 
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
@@ -10,12 +10,7 @@ interface ConditionsRowProps {
   id: string;
 }
 
-export const ConditionsRow = (
-  {
-    actor,
-    id
-  }: ConditionsRowProps
-) => {
+export const ConditionsRow = ({ actor, id }: ConditionsRowProps) => {
   const condition = actor.system.conditions.find(({ id: i }) => i === id);
   if (condition === undefined) {
     throw new Error("invalid condition id");
