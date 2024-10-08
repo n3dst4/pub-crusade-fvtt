@@ -23,13 +23,15 @@ type CSSResetProps = {
   noStyleAppWindow?: boolean;
 };
 
-export const CSSReset: React.FC<CSSResetProps> = ({
-  className,
-  children,
-  theme,
-  mode,
-  noStyleAppWindow = false,
-}: CSSResetProps) => {
+export const CSSReset = (
+  {
+    className,
+    children,
+    theme,
+    mode,
+    noStyleAppWindow = false
+  }: CSSResetProps
+) => {
   const ref = useRef<HTMLDivElement>(null);
 
   // add app window styles if there's a continaing app window

@@ -18,10 +18,12 @@ interface CharacterSheetProps {
   foundryApplication: ActorSheet;
 }
 
-export const CharacterSheet: React.FC<CharacterSheetProps> = ({
-  actor,
-  foundryApplication,
-}) => {
+export const CharacterSheet = (
+  {
+    actor,
+    foundryApplication
+  }: CharacterSheetProps
+) => {
   return (
     <CSSReset
       theme={pubTheme}

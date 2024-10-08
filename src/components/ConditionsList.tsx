@@ -11,10 +11,12 @@ interface ConditionsListProps {
   className?: string;
 }
 
-export const ConditionsList: React.FC<ConditionsListProps> = ({
-  actor,
-  className,
-}) => {
+export const ConditionsList = (
+  {
+    actor,
+    className
+  }: ConditionsListProps
+) => {
   const { scrollerRef, triggerScroll } = useScrollAndFocus();
 
   const handleClickAdd = useCallback(async () => {

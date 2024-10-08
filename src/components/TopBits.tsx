@@ -10,7 +10,12 @@ interface TopBitsProps {
   className?: string;
 }
 
-export const TopBits: React.FC<TopBitsProps> = ({ actor, className }) => {
+export const TopBits = (
+  {
+    actor,
+    className
+  }: TopBitsProps
+) => {
   return (
     <Panel
       className={className}

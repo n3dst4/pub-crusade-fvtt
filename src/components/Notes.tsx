@@ -9,7 +9,12 @@ interface NotesProps {
   className?: string;
 }
 
-export const Notes: React.FC<NotesProps> = ({ actor, className }) => {
+export const Notes = (
+  {
+    actor,
+    className
+  }: NotesProps
+) => {
   const [editMode, setEditMode] = useState(false);
   const temp = useRef(actor.system.notes);
 

@@ -11,11 +11,13 @@ type ToggleProps = {
   className?: string;
 };
 
-export const Toggle: React.FC<ToggleProps> = ({
-  checked,
-  onChange,
-  className,
-}) => {
+export const Toggle = (
+  {
+    checked,
+    onChange,
+    className
+  }: ToggleProps
+) => {
   const id = useContext(IdContext);
   const theme = useContext(ThemeContext);
   return (

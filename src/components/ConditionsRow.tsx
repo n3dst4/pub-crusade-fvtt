@@ -10,7 +10,12 @@ interface ConditionsRowProps {
   id: string;
 }
 
-export const ConditionsRow: React.FC<ConditionsRowProps> = ({ actor, id }) => {
+export const ConditionsRow = (
+  {
+    actor,
+    id
+  }: ConditionsRowProps
+) => {
   const condition = actor.system.conditions.find(({ id: i }) => i === id);
   if (condition === undefined) {
     throw new Error("invalid condition id");

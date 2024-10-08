@@ -11,7 +11,12 @@ interface DrinksListProps {
   className?: string;
 }
 
-export const DrinksList: React.FC<DrinksListProps> = ({ actor, className }) => {
+export const DrinksList = (
+  {
+    actor,
+    className
+  }: DrinksListProps
+) => {
   const { scrollerRef, triggerScroll } = useScrollAndFocus({
     selector: ".drink-what",
   });

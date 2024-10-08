@@ -29,16 +29,18 @@ const adjust = (display: string, by: number, min?: number, max?: number) => {
   return result.toString();
 };
 
-export const AsyncNumberInput: React.FC<AsyncNumberInputProps> = ({
-  value,
-  onChange: onChangeOrig,
-  className,
-  min,
-  max,
-  disabled,
-  noPlusMinus = false,
-  smallButtons = false,
-}) => {
+export const AsyncNumberInput = (
+  {
+    value,
+    onChange: onChangeOrig,
+    className,
+    min,
+    max,
+    disabled,
+    noPlusMinus = false,
+    smallButtons = false
+  }: AsyncNumberInputProps
+) => {
   const validate = useCallback(
     (text: string): ValidationResult => {
       const num = Number(text);

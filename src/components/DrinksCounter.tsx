@@ -10,10 +10,12 @@ interface DrinksCounterProps {
   className?: string;
 }
 
-export const DrinksCounter: React.FC<DrinksCounterProps> = ({
-  actor,
-  className,
-}) => {
+export const DrinksCounter = (
+  {
+    actor,
+    className
+  }: DrinksCounterProps
+) => {
   return (
     <Panel
       className={className}

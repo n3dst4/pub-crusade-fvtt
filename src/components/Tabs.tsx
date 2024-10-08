@@ -11,7 +11,12 @@ interface TabsProps {
   className?: string;
 }
 
-export const Tabs: React.FC<TabsProps> = ({ actor, className }) => {
+export const Tabs = (
+  {
+    actor,
+    className
+  }: TabsProps
+) => {
   const conditionCount = actor.system.conditions.length;
 
   return (

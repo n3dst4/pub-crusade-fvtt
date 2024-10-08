@@ -10,7 +10,12 @@ interface DrinksRowProps {
   id: string;
 }
 
-export const DrinksRow: React.FC<DrinksRowProps> = ({ actor, id }) => {
+export const DrinksRow = (
+  {
+    actor,
+    id
+  }: DrinksRowProps
+) => {
   const drink = actor.system.drinks.find(({ id: i }) => i === id);
   if (drink === undefined) {
     throw new Error("invalid drink id");
