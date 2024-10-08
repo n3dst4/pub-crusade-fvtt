@@ -1,4 +1,3 @@
-
 import { TabContainer } from "../copiedFromInvestigator/components/TabContainer";
 import { CharacterActor } from "../v10Types";
 import { ConditionsList } from "./ConditionsList";
