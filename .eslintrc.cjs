@@ -1,6 +1,6 @@
 module.exports = {
   extends: ["./packages/shared-fvtt-bits/dotfiles/import/.eslintrc.cjs"],
-  ignorePatterns: ["src/pub-crusade.js"],
+  ignorePatterns: ["src/pubCrusade.js"],
   // whatever other config you need for your project
   rules: {
     // All these no-unsafe-* rules are turned off because we have so many

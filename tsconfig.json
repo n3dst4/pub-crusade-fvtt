@@ -16,6 +16,4 @@
 			]
 		},
 	}
-
-  // "files": ["src/pub-crusade.ts", "tasks.ts", "vite.config.ts"]
 }

@@ -4,7 +4,7 @@
   "description": "Pub Crusade by Grant Howitt",
   "version": "1.0.5-alpha.2",
   "authors": [{ "name": "Neil de Carteret" }],
-  "esmodules": ["pub-crusade.js"],
+  "esmodules": ["pubCrusade.js"],
   "compatibility": {
     "minimum": "12",
     "verified": "12"
