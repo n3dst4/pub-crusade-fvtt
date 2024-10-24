@@ -13,9 +13,9 @@ updates:
   # attempt to ignore shared-fvtt-bits, as per https://github.com/dependabot/dependabot-core/issues/4364
   # see https://github.com/n3dst4/gumshoe-fvtt/issues/904
   - package-ecosystem: "npm"
-    directory: "./packages/shared-fvtt-bits"
+    directory: "/packages/shared-fvtt-bits"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     ignore:
       - dependency-name: "*"
 
