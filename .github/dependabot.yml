@@ -5,11 +5,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "weekly"
-
   # attempt to ignore shared-fvtt-bits, as per https://github.com/dependabot/dependabot-core/issues/4364
   # see https://github.com/n3dst4/gumshoe-fvtt/issues/904
   - package-ecosystem: "npm"
@@ -18,6 +13,12 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "*"
+
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+
 
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
