@@ -44,9 +44,9 @@
     "vitest": "^2.1.5"
   },
   "dependencies": {
-    "@emotion/cache": "^11.13.1",
-    "@emotion/css": "^11.13.4",
-    "@emotion/react": "^11.13.3",
+    "@emotion/cache": "^11.13.5",
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.13.5",
     "@lumphammer/shared-fvtt-bits": "workspace:^",
     "@radix-ui/react-switch": "^1.1.1",
     "nanoid": "^5.0.8",
