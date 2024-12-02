@@ -53,7 +53,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
+        version: 3.7.2(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -76,11 +76,11 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.1
-        version: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+        specifier: ^6.0.2
+        version: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
       vite-plugin-svgr:
         specifier: ^4.3.0
-        version: 4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
+        version: 4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
       vitest:
         specifier: ^2.1.6
         version: 2.1.6(@types/node@22.5.2)(happy-dom@15.11.7)(sass-embedded@1.81.0)(tsx@4.19.2)
@@ -3505,8 +3505,8 @@ packages:
       terser:
         optional: true
 
-  vite@6.0.1:
-    resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
+  vite@6.0.2:
+    resolution: {integrity: sha512-XdQ+VsY2tJpBsKGs0wf3U/+azx8BBpYRHFAyKm5VeEZNOJZRB63q7Sc8Iup3k0TrN3KO6QgyzFf+opSbfY1y0g==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5032,10 +5032,10 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react-swc@3.7.2(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))':
+  '@vitejs/plugin-react-swc@3.7.2(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))':
     dependencies:
       '@swc/core': 1.7.26
-      vite: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+      vite: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -5061,13 +5061,13 @@ snapshots:
     optionalDependencies:
       vite: 5.4.10(@types/node@22.5.2)(sass-embedded@1.81.0)
 
-  '@vitest/mocker@2.1.6(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))':
+  '@vitest/mocker@2.1.6(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))':
     dependencies:
       '@vitest/spy': 2.1.6
       estree-walker: 3.0.3
       magic-string: 0.30.12
     optionalDependencies:
-      vite: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+      vite: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
 
   '@vitest/pretty-format@2.1.3':
     dependencies:
@@ -7221,7 +7221,7 @@ snapshots:
       debug: 4.3.7
       es-module-lexer: 1.5.4
       pathe: 1.1.2
-      vite: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+      vite: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -7247,12 +7247,12 @@ snapshots:
       - supports-color
       - typescript
 
-  vite-plugin-svgr@4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)):
+  vite-plugin-svgr@4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)):
     dependencies:
       '@rollup/pluginutils': 5.1.3(rollup@4.27.4)
       '@svgr/core': 8.1.0(typescript@5.7.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.7.2))
-      vite: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+      vite: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7278,7 +7278,7 @@ snapshots:
       fsevents: 2.3.3
       sass-embedded: 1.81.0
 
-  vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2):
+  vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
@@ -7327,7 +7327,7 @@ snapshots:
   vitest@2.1.6(@types/node@22.5.2)(happy-dom@15.11.7)(sass-embedded@1.81.0)(tsx@4.19.2):
     dependencies:
       '@vitest/expect': 2.1.6
-      '@vitest/mocker': 2.1.6(vite@6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
+      '@vitest/mocker': 2.1.6(vite@6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2))
       '@vitest/pretty-format': 2.1.6
       '@vitest/runner': 2.1.6
       '@vitest/snapshot': 2.1.6
@@ -7343,7 +7343,7 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 6.0.1(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
+      vite: 6.0.2(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
       vite-node: 2.1.6(@types/node@22.5.2)(sass-embedded@1.81.0)(tsx@4.19.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
