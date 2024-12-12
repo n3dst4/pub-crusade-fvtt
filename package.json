@@ -7,7 +7,6 @@
   "scripts": {
     "test": "echo \"Where we're going, we don't need tests!\"",
     "build": "vite build",
-    "package": "vite build && ./tasks.ts packidge",
     "dev": "vite dev & tsc --noEmit --watch",
     "link": "./tasks.ts link",
     "unlink": "tasks.ts unlink",
