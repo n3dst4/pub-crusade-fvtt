@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import {
   ChangeEvent,
   Fragment,
+  ReactNode,
   useCallback,
   useContext,
   useMemo,
@@ -15,8 +16,8 @@ import { ThemeContext } from "../themes/ThemeContext";
 
 type TabDefinition = {
   id: string;
-  label: string | JSX.Element;
-  content: JSX.Element;
+  label: string | ReactNode;
+  content: ReactNode;
   translate?: boolean;
 };
 
@@ -78,7 +79,7 @@ export const TabContainer = ({
       }}
     >
       <div className="tab-strip">
-        {tabDefs.map<JSX.Element>(({ id, label, translate = true }, index) => {
+        {tabDefs.map<ReactNode>(({ id, label, translate = true }, index) => {
           const htmlId = nanoid();
           return (
             <Fragment key={id}>

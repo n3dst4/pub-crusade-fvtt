@@ -7,7 +7,6 @@
   "scripts": {
     "test": "echo \"Where we're going, we don't need tests!\"",
     "build": "vite build",
-    "package": "vite build && ./tasks.ts packidge",
     "dev": "vite dev & tsc --noEmit --watch",
     "link": "./tasks.ts link",
     "unlink": "tasks.ts unlink",
@@ -29,8 +28,8 @@
     "@lumphammer/investigator-fvtt-types": "^1.13.2",
     "@swc/plugin-emotion": "^7.0.3",
     "@types/fs-extra": "^11.0.4",
-    "@types/react": "^18.3.16",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.2.0",
     "happy-dom": "^15.11.7",
@@ -50,7 +49,7 @@
     "@lumphammer/shared-fvtt-bits": "workspace:^",
     "@radix-ui/react-switch": "^1.1.1",
     "nanoid": "^5.0.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
