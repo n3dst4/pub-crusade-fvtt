@@ -20,6 +20,7 @@ type CreateFvttViteConfigArgs = {
   importMetaUrl: string;
   packageType: "module" | "system";
   port?: number;
+  sourceMap?: boolean;
 };
 
 // this is lifted from
@@ -49,6 +50,7 @@ export function createFvttViteConfig({
   importMetaUrl,
   packageType,
   port = 40000,
+  sourceMap = false,
 }: CreateFvttViteConfigArgs) {
   //
   // setup
@@ -172,20 +174,8 @@ export function createFvttViteConfig({
       build: {
         outDir: path.resolve(rootDir, "build"),
         emptyOutDir: true,
-        sourcemap: mode !== "production",
+        sourcemap: mode !== "production" || sourceMap,
         minify: mode === "production",
-        // by default vite will generate "style.css". For Foundry, we want to have
-        // the name of the package in the filename.
-        rollupOptions: {
-          output: {
-            assetFileNames: (assetInfo) => {
-              if (assetInfo.name === "style.css") {
-                return `${foundryPackageId}.css`;
-              }
-              return assetInfo.name ?? "";
-            },
-          },
-        },
         lib: {
           name: foundryPackageId,
           entry: `${kebabCaseToCamelCase(foundryPackageId)}.ts`,
