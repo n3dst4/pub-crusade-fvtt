@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.6 (2024-12-12)
+
+* No changes, just releasing to get recent automated updates. out there.
+
 ## 1.0.3 (2024-09-17)
 
 * Fix: A stray `span: 3` was causing layout chaos in the conditions list in Chrome.
